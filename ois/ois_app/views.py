@@ -8,7 +8,7 @@ import json
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse("Hello, world. <a href='show_accounts'>show_accounts</a>")
 
 
 def show_accounts(request):
@@ -58,9 +58,9 @@ def serialise_get_object(get_object):
 
 
 def query_result_to_array(list_object):
-    '''
+    """
     Returns an object ready to be serialized with json.dumps(res)
-    '''
+    """
     d = dict()
     tmp_python = serializers.serialize('python', list_object)
     for el in tmp_python:
