@@ -3,15 +3,17 @@ from django.http import HttpResponse
 from .models import *
 from django.core import serializers
 import json
+
+
 # Create your views here.
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
+
 def show_accounts(request):
     accounts = Account.objects.all()
     res = query_result_to_array(accounts)
-    #s = json.dumps(res)
     res_string = """<style>
 table, th, td {
     border: 1px solid black;
@@ -25,7 +27,7 @@ table, th, td {
 
 def dict_of_dicts_to_html_table(dict_of_dicts):
     headers = set()
-    #headers.add("pk")
+    # headers.add("pk")
     for pk in dict_of_dicts:
         for field in dict_of_dicts[pk]:
             headers.add(field)
@@ -47,11 +49,13 @@ def dict_of_dicts_to_html_table(dict_of_dicts):
     ret += "</table>\n"
     return ret
 
+
 def serialise_get_object(get_object):
     data = serializers.serialize('json', [get_object, ])
     struct = json.loads(data)
     data = json.dumps(struct[0])
     return data
+
 
 def query_result_to_array(list_object):
     '''
