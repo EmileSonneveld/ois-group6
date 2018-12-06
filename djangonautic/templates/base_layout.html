@@ -29,10 +29,11 @@
                 <a class="nav-link" href="{% url 'articles:list' %}">Articles</a>
                 <a class="nav-link" href="{% url 'articles:create' %}"> New article </a>
                 <a class="nav-link" action="{% url 'accounts:logout' %}" method="post">
-                <form action="{% url 'accounts:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button class="logoutBotton" type="submit">Logout</button>
-                </form>
+                    <form action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="logoutBotton" type="submit">Logout</button>
+                    </form>
+                </a>
                 {% else %}
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
                 <a class="nav-link" href="{% url 'articles:list' %}">Articles</a>

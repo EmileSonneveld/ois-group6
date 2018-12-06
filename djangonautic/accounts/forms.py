@@ -25,4 +25,4 @@ class RegistrationForm(UserCreationForm):
         if commit:
             user.save()
 
-        return use
+        return user
