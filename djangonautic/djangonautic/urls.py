@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'accounts/', include('accounts.urls')),
     url(r'^articles/', include('articles.urls')),
     url(r'^$', views.homepage, name="home"),
+    url(r'^patient_portal$', views.patient_portal, name="patient_portal"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
