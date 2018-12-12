@@ -1,3 +1,4 @@
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
@@ -15,7 +16,7 @@ def signup_view(request):
             return redirect('articles:list')
     else:
         form = RegistrationForm()
-    return render(request, 'accounts/signup.html', {'form': form})
+    return render(request, 'signup.html', {'form': form})
 
 
 def login_view(request):
@@ -31,10 +32,22 @@ def login_view(request):
                 return redirect('articles:list')
     else:
         form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
 
 
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
         return redirect('articles:list')
+
+
+def patient_portal(request):
+    return render(request, 'patient_portal.html')
+
+
+def get_all_symptoms(request):
+    return JsonResponse({'foo': 'todo'})
+
+
+def get_patient_symptoms(request):
+    return JsonResponse({'foo': 'todo'})
