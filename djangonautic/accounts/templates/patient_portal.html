@@ -19,27 +19,45 @@
             let symptomTableContent = document.getElementById("symptomTableContent")
             symptomTableContent.innerHTML = 
             `<tr>
-        <th>patient#</th>
+        <th>diagnosis#</th>
         <th>symptom</th>
         <th>start_date</th>
         <th>end_date</th>
         <th>severity</th>
         <th>remove</th>
     </tr>`
-            for (var prop in obj) {
+            for (let prop in obj) {
                 if (obj.hasOwnProperty(prop)) {
                     let el  = obj[prop]
             		let tr = document.createElement("tr")
                     let td = null
-                    td = document.createElement("td"); td.innerText = el["patient"]; tr.appendChild(td)
-                    td = document.createElement("td"); td.innerText = el["symptom"]; tr.appendChild(td)
-                    td = document.createElement("td"); td.innerText = el["start_date"]; tr.appendChild(td)
-                    td = document.createElement("td"); td.innerText = el["end_date"]; tr.appendChild(td)
-                    td = document.createElement("td"); td.innerText = el["severity"]; tr.appendChild(td)
-                    td = document.createElement("td"); td.innerHtml = "<button>Remove</button>"; tr.appendChild(td)
+                    let start_date = el["start_date"] || ""
+                    let end_date = el["end_date"] || ""
+
+                    // Open for XSS attacks:
+                    td = document.createElement("td"); td.innerHTML = `<input name="diagnosis" readonly type='text' value='${prop}'/>`;tr.appendChild(td)
+                    td = document.createElement("td"); td.innerHTML = `<input name="symptom" readonly type='text' value='${el["symptom"]}'/>`; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerHTML = `<input name="start_date" type='text' value='${start_date}' style="width:99px;"/>`; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerHTML = `<input name="end_date" type='text' value='${end_date}' style="width:99px;"/>`; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerHTML = `<input name="severity" type='number' value='${el["severity"]}' style="width:60px;"/>`; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerHTML = "<button>Remove</button>"; tr.appendChild(td)
                     symptomTableContent.appendChild(tr)
                 }
             }
+            let getTableRowValues = function(tableRow){
+                const ret = {};
+                ret["diagnosis"] = tableRow.querySelector("[name=diagnosis]").value;
+                ret["symptom"] = tableRow.querySelector("[name=symptom]").value;
+                ret["start_date"] = tableRow.querySelector("[name=start_date]").value;
+                ret["end_date"] = tableRow.querySelector("[name=end_date]").value;
+                ret["severity"] = tableRow.querySelector("[name=severity]").value;
+                return ret
+            };
+            symptomTableContent.addEventListener("change", function(evt){
+                console.log(evt.target);
+                console.log(getTableRowValues(evt.target.closest("tr")))
+
+            })
         }
     };
     xhttp.open("GET", "/accounts/get_all_patient_symptom", true);
