@@ -14,3 +14,5 @@ python manage.py makemigrations articles
 python manage.py makemigrations accounts
 python manage.py migrate
 python manage.py runserver
+
+http://health.thendrie.be/git_pull/
