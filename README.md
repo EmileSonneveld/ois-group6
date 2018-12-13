@@ -7,3 +7,5 @@ pip install Django
 superuser: admin, admin
 
 python manage.py makemigrations accounts
+python manage.py migrate
+python manage.py runserver

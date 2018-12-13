@@ -4,17 +4,42 @@
 
 <h1>Patient portal</h1>
 <h2>Symptoms</h2>
-<div id="symptoms-table">(This content should be replaced by javascript.)</div>
+<table id="symptomTableContent" style="width:100%"></table>
+<button onclick="window.location.href = 'add_new_symptom_to_patient';">Add symptom to my patient profile</button>
 
 <h2>Possible diseases</h2>
 ...
 
 <script type="application/javascript">
-    const symptomsTable = document.getElementById("symptoms-table");
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            symptomsTable.innerHTML = this.responseText;
+            //symptomsTable.innerHTML = this.responseText;
+            let obj = JSON.parse(this.responseText)
+            let symptomTableContent = document.getElementById("symptomTableContent")
+            symptomTableContent.innerHTML = 
+            `<tr>
+        <th>patient#</th>
+        <th>symptom</th>
+        <th>start_date</th>
+        <th>end_date</th>
+        <th>severity</th>
+        <th>remove</th>
+    </tr>`
+            for (var prop in obj) {
+                if (obj.hasOwnProperty(prop)) {
+                    let el  = obj[prop]
+            		let tr = document.createElement("tr")
+                    let td = null
+                    td = document.createElement("td"); td.innerText = el["patient"]; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerText = el["symptom"]; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerText = el["start_date"]; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerText = el["end_date"]; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerText = el["severity"]; tr.appendChild(td)
+                    td = document.createElement("td"); td.innerHtml = "<button>Remove</button>"; tr.appendChild(td)
+                    symptomTableContent.appendChild(tr)
+                }
+            }
         }
     };
     xhttp.open("GET", "/accounts/get_all_patient_symptom", true);

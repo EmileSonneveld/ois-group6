@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.core import serializers
+from django.views.decorators.http import require_http_methods
 import json
 
 from .forms import RegistrationForm
@@ -77,11 +78,12 @@ def get_all_patient_symptom(request):
     res = query_result_to_array(q_res)
     return JsonResponse(res, json_dumps_params={'indent': 2})
 
-    pp = PatientProfile.objects.get(user=request.user)
-    return JsonResponse({
-        'user': request.user.__str__(),
-        'user.id': request.user.id.__str__(),
-        'pp_pk': pp.pk.__str__(),
-        'pp_str': pp.__str__(),
-        'q_res': len(q_res).__str__(),
-    })
+
+@require_http_methods(["GET", "POST"])
+def add_new_symptom_to_patient(request):
+    
+    if request.method == "POST":
+        context = {"wasPostRequest": True}
+    else:
+        context = {"wasPostRequest": False}
+    return render(request, 'add_new_symptom_to_patient.html', context)

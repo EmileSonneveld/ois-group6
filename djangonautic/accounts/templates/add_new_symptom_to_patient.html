@@ -1,0 +1,102 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+<style type="text/css">
+
+    .rowSelectable {
+    }
+
+    .rowSelectable > tr:hover {
+        background-color: aqua;
+    }
+
+    .trSelected {
+        background-color: #8fcafe;
+    }
+</style>
+
+<div style="width: 100%; background-color: green;" {% if wasPostRequest == False %}hidden{% endif %}>Symptom was added. Go back to Patient portal to view it and customize further.</div>
+
+<a href="patient_portal">Go to patient portal.</a>
+
+
+<h1>Add symptom to my patient profile</h1>
+<h2>Add sumptom</h2>
+<table id="symptomTableContent" class="rowSelectable" style="width:100%"></table>
+
+<!--
+ action="patient_portal"
+ -->
+<form method="POST">
+    {% csrf_token %}
+    <input name="name_slug" type="text" value="" required style="opacity: 0; width: 0; height: 0;"/> <br/> <br/>
+    <input type="submit" value="Add"/>
+</form>
+
+
+<script type="application/javascript">
+    let symptomTableContent = document.getElementById("symptomTableContent")
+    let name_slug_element = document.getElementsByName("name_slug")[0]
+
+    let selected_name_slug = null
+
+    function SetSelectedNameSlug(newSlug) {
+        if (selected_name_slug === newSlug) return;
+        selected_name_slug = newSlug
+        SetState()
+    }
+
+    function SetState() {
+        name_slug_element.value = selected_name_slug
+        const children = symptomTableContent.children;
+        for (let i = 0; i < children.length; i++) {
+            const el = children[i];
+
+            if (selected_name_slug == null || selected_name_slug !== el.getAttribute("data-name_slug"))
+                el.classList.remove("trSelected")
+            else {
+                el.classList.add("trSelected")
+            }
+        }
+    }
+
+    function RowClicked(evt){
+        const tar = evt.currentTarget
+        SetSelectedNameSlug(tar.getAttribute("data-name_slug"))
+    }
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            let obj = JSON.parse(this.responseText)
+            symptomTableContent.innerHTML =
+                `<tr>
+        <th>name_slug</th>
+        <th>name</th>
+        <th>uri</th>
+    </tr>`
+            for (let prop in obj) {
+                if (obj.hasOwnProperty(prop)) {
+                    let el = obj[prop]
+                    let tr = document.createElement("tr")
+                    tr.setAttribute("data-name_slug", prop)
+                    let td = null
+                    td = document.createElement("td");
+                    td.innerText = prop;
+                    tr.appendChild(td)
+                    td = document.createElement("td");
+                    td.innerText = el["name"];
+                    tr.appendChild(td)
+                    td = document.createElement("td");
+                    td.innerText = el["uri"];
+                    tr.appendChild(td)
+                    tr.addEventListener("click", RowClicked)
+                    symptomTableContent.appendChild(tr)
+                }
+            }
+        }
+    };
+    xhttp.open("GET", "/accounts/get_all_symptom", true);
+    xhttp.send();
+</script>
+{% endblock %}
