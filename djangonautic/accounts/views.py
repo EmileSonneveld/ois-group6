@@ -81,8 +81,12 @@ def get_all_patient_symptom(request):
 
 @require_http_methods(["GET", "POST"])
 def add_new_symptom_to_patient(request):
-    
     if request.method == "POST":
+        name_slug = request.POST.get("name_slug")
+        user_id = request.user.id
+        patientProfile = PatientProfile.objects.get(user__id=user_id)
+        symp = Symptom.objects.get(name_slug=name_slug)
+        Diagnosis.objects.create(patient=patientProfile, symptom=symp)
         context = {"wasPostRequest": True}
     else:
         context = {"wasPostRequest": False}
