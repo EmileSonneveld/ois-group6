@@ -11,6 +11,7 @@
 ...
 
 <script type="application/javascript">
+
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -45,18 +46,21 @@
                 }
             }
             let getTableRowValues = function(tableRow){
-                const ret = {};
-                ret["diagnosis"] = tableRow.querySelector("[name=diagnosis]").value;
-                ret["symptom"] = tableRow.querySelector("[name=symptom]").value;
-                ret["start_date"] = tableRow.querySelector("[name=start_date]").value;
-                ret["end_date"] = tableRow.querySelector("[name=end_date]").value;
-                ret["severity"] = tableRow.querySelector("[name=severity]").value;
+                const ret = new FormData();
+                ret.append("diagnosis", tableRow.querySelector("[name=diagnosis]").value)
+                ret.append("symptom", tableRow.querySelector("[name=symptom]").value)
+                ret.append("start_date", tableRow.querySelector("[name=start_date]").value)
+                ret.append("end_date", tableRow.querySelector("[name=end_date]").value)
+                ret.append("severity", tableRow.querySelector("[name=severity]").value)
                 return ret
             };
             symptomTableContent.addEventListener("change", function(evt){
                 console.log(evt.target);
-                console.log(getTableRowValues(evt.target.closest("tr")))
-
+                var data = getTableRowValues(evt.target.closest("tr"))
+                console.log(data)
+                const xhttp2 = new XMLHttpRequest();
+                xhttp2.open("POST", "/accounts/update_diagnosis", true);
+                xhttp2.send(data);
             })
         }
     };

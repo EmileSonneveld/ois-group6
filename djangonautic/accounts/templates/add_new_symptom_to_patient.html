@@ -1,19 +1,6 @@
 {% extends 'base_layout.html' %}
 
 {% block content%}
-<style type="text/css">
-
-    .rowSelectable {
-    }
-
-    .rowSelectable > tr:hover {
-        background-color: aqua;
-    }
-
-    .trSelected {
-        background-color: #8fcafe;
-    }
-</style>
 
 <div style="width: 100%; background-color: green;" {% if wasPostRequest == False %}hidden{% endif %}>Symptom was added. Go back to Patient portal to view it and customize further.</div>
 

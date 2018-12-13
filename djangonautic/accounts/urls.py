@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^get_all_symptom$', views.get_all_symptom, name="get_all_symptom"),
     url(r'^get_all_disease$', views.get_all_disease, name="get_all_disease"),
     url(r'^add_new_symptom_to_patient$', views.add_new_symptom_to_patient, name="add_new_symptom_to_patient"),
+    url(r'^update_diagnosis$', views.update_diagnosis, name="update_diagnosis"),
 ]

@@ -1,0 +1,18 @@
+
+.rowSelectable {
+}
+
+.rowSelectable > tr:hover {
+    background-color: aqua;
+}
+
+.trSelected {
+    background-color: #8fcafe;
+}
+
+
+
+input:read-only {
+	background-color: #ffffff85;
+	border-style: solid;
+}

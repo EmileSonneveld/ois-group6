@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.core import serializers
 from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
 import json
 
 from .forms import RegistrationForm
@@ -91,3 +92,21 @@ def add_new_symptom_to_patient(request):
     else:
         context = {"wasPostRequest": False}
     return render(request, 'add_new_symptom_to_patient.html', context)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def update_diagnosis(request):
+    diagnosis = request.POST.get("diagnosis")
+    symptom = request.POST.get("symptom")
+    start_date = request.POST.get("start_date")
+    end_date = request.POST.get("end_date")
+    severity = request.POST.get("severity")
+
+    d = Diagnosis.objects.get(id=diagnosis)
+    #d.symptom = symptom
+    d.start_date = start_date
+    d.end_date = end_date
+    d.severity = severity
+    d.save()
+    return HttpResponse("OK")
