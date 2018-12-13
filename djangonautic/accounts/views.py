@@ -5,11 +5,21 @@ from django.contrib.auth import login, logout
 from django.core import serializers
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
+from subprocess import check_output
+
 import json
 
 from .forms import RegistrationForm
 from .models import *
 
+
+def git_pull(request):
+    if request.user.is_staff:
+        data = check_output(["git", "pull"])
+        # data += check_output(["systemctl", "restart", "gunicorn"])  # Doesn't work (no root)
+        return HttpResponse(data, content_type='text/plain')
+    else:
+        return HttpResponse('Nice try.', status=401)
 
 def signup_view(request):
     if request.method == 'POST':
