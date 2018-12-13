@@ -40,7 +40,7 @@ class Diagnosis(models.Model):
 class Symptom(models.Model):
 	name_slug = models.CharField(max_length=500, primary_key=True)
 	name = models.CharField(max_length=500)
-	uri = models.CharField(max_length=500)
+	uri = models.CharField(max_length=500, null=True, blank=True)
 
 	parent = models.ForeignKey('Symptom', on_delete=models.CASCADE, null=True, blank=True, related_name="contains")
 	can_cause_symptom = models.ManyToManyField('Symptom', blank=True)
@@ -54,7 +54,7 @@ class Disease(models.Model):
 	name_slug = models.CharField(max_length=500, primary_key=True)
 	name = models.CharField(max_length=500)
 	description = models.CharField(max_length=1000)
-	uri = models.CharField(max_length=500)
+	uri = models.CharField(max_length=500, null=True, blank=True)
 
 	def __str__(self):
 		return "<" + self.name_slug.__str__() + ">"
