@@ -148,15 +148,21 @@ def disease_create(request):
     return render(request, 'disease_create.html', {'form': form})
 
 
-def disease_list(request):
-    diseases_added_by_me = Disease.objects.filter(added_by=1)
-    diseases_rest = Disease.objects.exclude(added_by=1)
-    return render(request, 'disease_list.html', {
+def disease_list_as_doctor(request):
+    doctor = DoctorProfile.objects.get(user=request.user)
+    diseases_added_by_me = Disease.objects.filter(added_by=doctor)
+    diseases_rest = Disease.objects.exclude(added_by=doctor)
+    return render(request, 'disease_list_as_doctor.html', {
         'diseases_added_by_me': diseases_added_by_me,
         'diseases_rest': diseases_rest
     })
 
+def disease_list_as_patient(request):
+    diseases_rest = Disease.objects.all()
+    return render(request, 'disease_list_as_patient.html', {
+        'diseases_rest': diseases_rest
+    })
 
 def disease_detail(request, slug):
     obj = Disease.objects.get(name_slug=slug)
-    return render(request, 'disease_detail.html', { 'disease': obj })
+    return render(request, 'disease_detail.html', {'disease': obj})

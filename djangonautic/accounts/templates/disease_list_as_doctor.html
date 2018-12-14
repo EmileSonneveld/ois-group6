@@ -1,0 +1,44 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Diseases I added</h1>
+    <table class="">
+        <tr>
+            <th>slug</th>
+            <th>name</th>
+            <th>description</th>
+            <th>added_by</th>
+        </tr>
+        {% for elem in diseases_added_by_me %}
+            <tr>
+                <td><a href="{% url 'accounts:disease_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
+                <td>{{ elem.name }}</td>
+                <td>{{ elem.description }}</td>
+                <td>{{ elem.added_by.user.username }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if not diseases_added_by_me%}
+        List is empty
+    {% endif %}
+    <h1>Other Diseases</h1>
+    <table class="">
+        <tr>
+            <th>slug</th>
+            <th>name</th>
+            <th>description</th>
+            <th>added_by</th>
+        </tr>
+        {% for elem in diseases_rest %}
+            <tr>
+                <td><a href="{% url 'accounts:disease_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
+                <td>{{ elem.name }}</td>
+                <td>{{ elem.description }}</td>
+                <td>{{ elem.added_by.user.username }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if not diseases_rest%}
+        List is empty
+    {% endif %}
+{% endblock %}

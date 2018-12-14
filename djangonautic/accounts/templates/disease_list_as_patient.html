@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>List</h1>
+    <table class="">
+        <tr>
+            <th>name</th>
+            <th>description</th>
+        </tr>
+        {% for elem in diseases_rest %}
+            <tr>
+                <td><a href="{% url 'accounts:disease_detail' slug=elem.name_slug %}">{{ elem.name }}</a></td>
+                <td>{{ elem.description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

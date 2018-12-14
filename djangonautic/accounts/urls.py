@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^update_diagnosis$', views.update_diagnosis, name="update_diagnosis"),
     url(r'^disease/create$', views.disease_create, name="disease_create"),
     url(r'^disease/(?P<slug>[\w-]+)/$', views.disease_detail, name="disease_detail"),
-    url(r'^disease/', views.disease_list, name="disease_list"),
+    url(r'^disease/disease_list_as_doctor', views.disease_list_as_doctor, name="disease_list_as_doctor"),
+    url(r'^disease/', views.disease_list_as_patient, name="disease_list_as_patient"),
 
 ]
