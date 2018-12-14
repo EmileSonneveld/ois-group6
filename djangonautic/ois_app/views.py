@@ -36,7 +36,7 @@ def signup_view(request):
             user = form.save()
             #  log the user in
             login(request, user)
-            return redirect('articles:list')
+            return redirect('ois_app:list')
     else:
         form = RegistrationForm()
     return render(request, 'signup.html', {'form': form})
@@ -52,7 +52,7 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                return redirect('articles:list')
+                return redirect('ois_app:list')
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
@@ -61,7 +61,7 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('articles:list')
+        return redirect('ois_app:list')
 
 
 def patient_portal(request):
@@ -142,7 +142,7 @@ def symptom_create(request):
             instance.added_by = DoctorProfile.objects.get(user=request.user)
             instance.name_slug = slugify(request.POST.get("name"))
             instance.save()
-            return redirect('articles:list')
+            return redirect('ois_app:list')
     else:
         form = forms.CreateSymptom()
     return render(request, 'symptom_create.html', {'form': form})
@@ -182,7 +182,7 @@ def article_detail(request, slug):
     return render(request, 'article_detail.html', { 'article': article })
 
 
-@login_required(login_url="/accounts/login/")
+@login_required(login_url="/login/")
 def article_create(request):
     if request.method == 'POST':
         form = forms.CreateArticle(request.POST, request.FILES)
@@ -192,7 +192,7 @@ def article_create(request):
             instance.author = request.user
             instance.slug = slugify(request.POST.get("title"))
             instance.save()
-            return redirect('articles:list')
+            return redirect('ois_app:list')
     else:
         form = forms.CreateArticle()
     return render(request, 'article_create.html', { 'form': form })

@@ -27,23 +27,23 @@
                 <div class="inner">
                     <h3 class="masthead-brand">Medical Diagnostics</h3>
                     <nav class="nav nav-masthead">
-                        <a class="nav-link" href="{% url 'accounts:home' %}">Home</a>
-                        <a class="nav-link" href="{% url 'accounts:list' %}">Articles</a>
+                        <a class="nav-link" href="{% url 'ois_app:home' %}">Home</a>
+                        <a class="nav-link" href="{% url 'ois_app:list' %}">Articles</a>
                         {% if user.is_authenticated %}
                             {% if user.us %}
-                                <a class="nav-link" href="{% url 'articles:create' %}"> New article </a>
+                                <a class="nav-link" href="{% url 'ois_app:create' %}"> New article </a>
                             {% else %}
-                                <a class="nav-link" href="{% url 'accounts:patient_portal' %}">Patient portal</a>
+                                <a class="nav-link" href="{% url 'ois_app:patient_portal' %}">Patient portal</a>
                             {% endif %}
-                            <a class="nav-link" action="{% url 'accounts:logout' %}" method="post">
-                                <form action="{% url 'accounts:logout' %}" method="post">
+                            <a class="nav-link" action="{% url 'ois_app:logout' %}" method="post">
+                                <form action="{% url 'ois_app:logout' %}" method="post">
                                     {% csrf_token %}
                                     <button class="logoutBotton" type="submit">Logout</button>
                                 </form>
                             </a>
                         {% else %}
-                            <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
-                            <a class="nav-link" href="{% url 'accounts:signup' %}">Signup </a>
+                            <a class="nav-link" href="{% url 'ois_app:login' %}">Login</a>
+                            <a class="nav-link" href="{% url 'ois_app:signup' %}">Signup </a>
                         {% endif %}
                     </nav>
                 </div>

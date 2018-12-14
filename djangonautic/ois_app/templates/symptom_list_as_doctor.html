@@ -11,7 +11,7 @@
         </tr>
         {% for elem in symptoms_added_by_me %}
             <tr>
-                <td><a href="{% url 'accounts:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
+                <td><a href="{% url 'ois_app:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
                 <td>{{ elem.description }}</td>
                 <td>{{ elem.added_by.user.username }}</td>
@@ -22,7 +22,7 @@
         List is empty
     {% endif %}
     <br/>
-        <form action="{% url 'accounts:symptom_create'%}">
+        <form action="{% url 'ois_app:symptom_create'%}">
             <input type="submit" value="Create new symptom">
         </form>
     <br/><br/>
@@ -36,7 +36,7 @@
         </tr>
         {% for elem in symptoms_rest %}
             <tr>
-                <td><a href="{% url 'accounts:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
+                <td><a href="{% url 'ois_app:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
                 <td>{{ elem.description }}</td>
                 <td>{{ elem.added_by.user.username }}</td>

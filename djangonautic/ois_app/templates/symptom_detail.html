@@ -6,7 +6,7 @@
         <h2>{{ symptom.name }}</h2>
         <i>Added by {{ symptom.added_by.user.username }}</i> <br/>
         {% if symptom.parent %}
-            <i>Under symptom <a href="{% url 'accounts:symptom_detail' slug=symptom.parent.name_slug %}">{{ symptom.parent }}</a></i>
+            <i>Under symptom <a href="{% url 'ois_app:symptom_detail' slug=symptom.parent.name_slug %}">{{ symptom.parent }}</a></i>
         {% endif %}
         <p>{{ symptom.description }}</p>
         <p><b>Uri: </b>{{ symptom.uri }}</p>
