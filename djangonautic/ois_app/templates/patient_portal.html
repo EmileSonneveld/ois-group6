@@ -170,7 +170,8 @@ and thought you might like it http://www.geocities.com/wowhtml/">Mail profile to
                     td.innerHTML = `<input name="description" readonly type='text' value='${el["description"]}'/>`;
                     tr.appendChild(td)
                     td = document.createElement("td");
-                    td.innerHTML = `<input name="uri" readonly type='text' value='${el["uri"]}'/>`;
+                    td.innerHTML = `<a target="_blank" href="http://purl.obolibrary.org/obo/${el.uri}">${el.uri}</a>`
+                    //td.innerHTML = `<input name="uri" readonly type='text' value='${el["uri"]}'/>`;
                     tr.appendChild(td)
                     tableContent.appendChild(tr)
                 }
@@ -202,7 +203,8 @@ and thought you might like it http://www.geocities.com/wowhtml/">Mail profile to
                     td.innerHTML = `<input name="description" readonly type='text' value='${el["description"]}'/>`;
                     tr.appendChild(td)
                     td = document.createElement("td");
-                    td.innerHTML = `<input name="uri" readonly type='text' value='${el["uri"]}'/>`;
+                    td.innerHTML = `<a target="_blank" href="http://purl.obolibrary.org/obo/${el.uri}">${el.uri}</a>`
+                    //td.innerHTML = `<input name="uri" readonly type='text' value='${el["uri"]}'/>`;
                     tr.appendChild(td)
                     tableContent.appendChild(tr)
                 }

@@ -6,11 +6,13 @@
         <tr>
             <th>slug</th>
             <th>name</th>
+            <th>obo URI</th>
         </tr>
         {% for elem in symptoms_rest %}
             <tr>
                 <td><a href="{% url 'ois_app:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
+                <td><a target="_blank" href="http://purl.obolibrary.org/obo/{{ elem.uri }}">{{ elem.uri }}</a></td>
             </tr>
         {% endfor %}
     </table>

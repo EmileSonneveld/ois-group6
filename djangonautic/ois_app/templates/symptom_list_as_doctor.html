@@ -7,12 +7,14 @@
             <th>slug</th>
             <th>name</th>
             <th>added_by</th>
+            <th>obo URI</th>
         </tr>
         {% for elem in symptoms_added_by_me %}
             <tr>
                 <td><a href="{% url 'ois_app:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
                 <td>{{ elem.added_by.user.username }}</td>
+                <td><a target="_blank" href="http://purl.obolibrary.org/obo/{{ elem.uri }}">{{ elem.uri }}</a></td>
             </tr>
         {% endfor %}
     </table>
@@ -30,12 +32,14 @@
             <th>slug</th>
             <th>name</th>
             <th>added_by</th>
+            <th>obo URI</th>
         </tr>
         {% for elem in symptoms_rest %}
             <tr>
                 <td><a href="{% url 'ois_app:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
                 <td>{{ elem.added_by.user.username }}</td>
+                <td><a target="_blank" href="http://purl.obolibrary.org/obo/{{ elem.uri }}">{{ elem.uri }}</a></td>
             </tr>
         {% endfor %}
     </table>
