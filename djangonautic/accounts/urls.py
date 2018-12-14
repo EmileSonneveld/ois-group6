@@ -15,4 +15,8 @@ urlpatterns = [
     url(r'^get_all_disease$', views.get_all_disease, name="get_all_disease"),
     url(r'^add_new_symptom_to_patient$', views.add_new_symptom_to_patient, name="add_new_symptom_to_patient"),
     url(r'^update_diagnosis$', views.update_diagnosis, name="update_diagnosis"),
+    url(r'^disease/create$', views.disease_create, name="disease_create"),
+    url(r'^disease/(?P<slug>[\w-]+)/$', views.disease_detail, name="disease_detail"),
+    url(r'^disease/', views.disease_list, name="disease_list"),
+
 ]

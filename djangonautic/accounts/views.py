@@ -1,16 +1,23 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout
 from django.core import serializers
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from subprocess import check_output
-
-import json
-
+from . import forms
 from .forms import RegistrationForm
 from .models import *
+import re
+import unidecode
+import json
+
+
+def slugify(text):
+    text = unidecode.unidecode(text).lower()
+    return re.sub(r'[\W_]+', '-', text)
 
 
 def git_pull(request):
@@ -20,6 +27,7 @@ def git_pull(request):
         return HttpResponse(data, content_type='text/plain')
     else:
         return HttpResponse('Nice try.', status=401)
+
 
 def signup_view(request):
     if request.method == 'POST':
@@ -91,6 +99,7 @@ def get_all_patient_symptom(request):
 
 
 @require_http_methods(["GET", "POST"])
+@login_required(login_url="/accounts/login/")
 def add_new_symptom_to_patient(request):
     if request.method == "POST":
         name_slug = request.POST.get("name_slug")
@@ -106,6 +115,7 @@ def add_new_symptom_to_patient(request):
 
 @csrf_exempt
 @require_http_methods(["POST"])
+@login_required(login_url="/accounts/login/")
 def update_diagnosis(request):
     diagnosis = request.POST.get("diagnosis")
     symptom = request.POST.get("symptom")
@@ -114,9 +124,39 @@ def update_diagnosis(request):
     severity = request.POST.get("severity")
 
     d = Diagnosis.objects.get(id=diagnosis)
-    #d.symptom = symptom
+    # d.symptom = symptom
     d.start_date = start_date
     d.end_date = end_date
     d.severity = severity
     d.save()
     return HttpResponse("OK")
+
+
+@login_required(login_url="/accounts/login/")
+def disease_create(request):
+    if request.method == 'POST':
+        form = forms.CreateDisease(request.POST, request.FILES)
+        if form.is_valid():
+            # save article to db
+            instance = form.save(commit=False)
+            instance.added_by = DoctorProfile.objects.get(user=request.user)
+            instance.name_slug = slugify(request.POST.get("name"))
+            instance.save()
+            return redirect('articles:list')
+    else:
+        form = forms.CreateDisease()
+    return render(request, 'disease_create.html', {'form': form})
+
+
+def disease_list(request):
+    diseases_added_by_me = Disease.objects.filter(added_by=1)
+    diseases_rest = Disease.objects.exclude(added_by=1)
+    return render(request, 'disease_list.html', {
+        'diseases_added_by_me': diseases_added_by_me,
+        'diseases_rest': diseases_rest
+    })
+
+
+def disease_detail(request, slug):
+    obj = Disease.objects.get(name_slug=slug)
+    return render(request, 'disease_detail.html', { 'disease': obj })

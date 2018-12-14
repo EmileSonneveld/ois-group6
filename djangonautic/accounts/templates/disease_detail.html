@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="">
+    <div class="">
+        <h2>{{ disease.name }}</h2>
+        <i>Added by {{ disease.added_by.user.username }}</i>
+        <p>{{ disease.description }}</p>
+        <p><b>Uri: </b>{{ disease.uri }}</p>
+    </div>
+</div>
+{% endblock %}

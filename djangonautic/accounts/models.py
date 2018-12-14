@@ -5,10 +5,10 @@ from django.db.models.signals import post_save
 
 # Create your models here.
 # Always define an explicit primary key, just to be sure.
-# Don't provide 'user friendly' names. Becouse they are not programmer friendly.
+# Don't provide 'user friendly' names. Because they are not programmer friendly.
 
 class DoctorProfile(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True,)
+	user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, )
 	speciality = models.CharField(max_length=1000)
 
 	def __str__(self):
@@ -16,7 +16,7 @@ class DoctorProfile(models.Model):
 
 
 class PatientProfile(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True,)
+	user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, )
 	date_of_birth = models.DateField()
 	phone = models.CharField(max_length=20)
 
@@ -50,11 +50,15 @@ class Symptom(models.Model):
 		return "<" + self.name_slug.__str__() + ">"
 
 
+ADMIN_DOCTOR_ID = 1
+
+
 class Disease(models.Model):
 	name_slug = models.CharField(max_length=500, primary_key=True)
 	name = models.CharField(max_length=500)
 	description = models.CharField(max_length=1000)
 	uri = models.CharField(max_length=500, null=True, blank=True)
+	added_by = models.ForeignKey(DoctorProfile, default=ADMIN_DOCTOR_ID, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return "<" + self.name_slug.__str__() + ">"

@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="">
+        <h2>Add a new disease to this world</h2>
+        <i>You sick basterd!</i>
+        <form class="site-form" action="{% url 'accounts:disease_create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+{% endblock %}
