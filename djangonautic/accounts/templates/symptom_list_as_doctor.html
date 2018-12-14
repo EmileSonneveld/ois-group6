@@ -21,6 +21,11 @@
     {% if not symptoms_added_by_me%}
         List is empty
     {% endif %}
+    <br/>
+        <form action="{% url 'accounts:symptom_create'%}">
+            <input type="submit" value="Create new symptom">
+        </form>
+    <br/><br/>
     <h1>Other Symptoms</h1>
     <table class="">
         <tr>
@@ -41,4 +46,5 @@
     {% if not symptoms_rest%}
         List is empty
     {% endif %}
+
 {% endblock %}

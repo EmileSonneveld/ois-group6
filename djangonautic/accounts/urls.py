@@ -19,5 +19,8 @@ urlpatterns = [
     url(r'^symptom/(?P<slug>[\w-]+)/$', views.symptom_detail, name="symptom_detail"),
     url(r'^symptom/symptom_list_as_doctor', views.symptom_list_as_doctor, name="symptom_list_as_doctor"),
     url(r'^symptom/', views.symptom_list_as_patient, name="symptom_list_as_patient"),
-
+    url(r'^$', views.homepage, name="home"),
+    url(r'^articles/$', views.article_list, name="list"),
+    url(r'^articles/create$',views.article_create, name="create"),
+    url(r'^articles/(?P<slug>[\w-]+)/$', views.article_detail, name="detail"),
 ]

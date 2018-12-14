@@ -34,3 +34,9 @@ class CreateSymptom(forms.ModelForm):
 	class Meta:
 		model = models.Symptom
 		fields = ['name', 'uri']
+
+
+class CreateArticle(forms.ModelForm):
+	class Meta:
+		model = models.Article
+		fields = ['title', 'body', 'thumb', 'related_disease']

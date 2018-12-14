@@ -23,9 +23,9 @@
 and thought you might like it http://www.geocities.com/wowhtml/">Mail profile to doctor.</a>
 
 <script type="application/javascript">
-    const get_all_disease = badGet("/accounts/get_all_disease")
-    const get_all_symptom = badGet("/accounts/get_all_symptom")
-    const get_all_patient_symptom = badGet("/accounts/get_all_patient_symptom")
+    const get_all_disease = badGet("/get_all_disease")
+    const get_all_symptom = badGet("/get_all_symptom")
+    const get_all_patient_symptom = badGet("/get_all_patient_symptom")
 
     const potential_diseases = {} // a Set
     const symps_for_user = []
@@ -130,7 +130,7 @@ and thought you might like it http://www.geocities.com/wowhtml/">Mail profile to
             const data = getTableRowValues(evt.target.closest("tr"));
             console.log(data)
             const xhttp2 = new XMLHttpRequest();
-            xhttp2.open("POST", "/accounts/update_diagnosis", true);
+            xhttp2.open("POST", "/update_diagnosis", true);
             xhttp2.send(data);
         });
     }
@@ -190,7 +190,7 @@ Hi Doctor,
 I feel a little unhealthy. Could you take a look at my medical profile and see if we need to make an appointment?
 
 Link to my patient portal:
-${window.location.protocol}//${window.location.hostname}:${window.location.port}/accounts/patient_portal?patientId=6
+${window.location.protocol}//${window.location.hostname}:${window.location.port}/patient_portal?patientId=6
 
 
 `

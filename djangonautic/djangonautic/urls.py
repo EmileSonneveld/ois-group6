@@ -7,11 +7,8 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'accounts/', include('accounts.urls')),
-    url(r'^articles/', include('articles.urls')),
-    url(r'^$', views.homepage, name="home"),
+    url(r'^', include('accounts.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

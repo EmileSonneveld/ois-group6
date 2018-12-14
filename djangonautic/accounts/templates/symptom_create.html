@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="">
-        <h2>Add a new symptom to this world</h2>
+        <h2>Add a new symptom</h2>
         <i>When you discover something new</i>
         <form class="site-form" action="{% url 'accounts:symptom_create' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}

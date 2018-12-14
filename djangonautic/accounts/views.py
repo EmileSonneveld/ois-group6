@@ -135,7 +135,7 @@ def update_diagnosis(request):
 @login_required(login_url="/accounts/login/")
 def symptom_create(request):
     if request.method == 'POST':
-        form = forms.CreateDisease(request.POST, request.FILES)
+        form = forms.CreateSymptom(request.POST, request.FILES)
         if form.is_valid():
             # save article to db
             instance = form.save(commit=False)
@@ -144,7 +144,7 @@ def symptom_create(request):
             instance.save()
             return redirect('articles:list')
     else:
-        form = forms.CreateDisease()
+        form = forms.CreateSymptom()
     return render(request, 'symptom_create.html', {'form': form})
 
 
@@ -166,3 +166,37 @@ def symptom_list_as_patient(request):
 def symptom_detail(request, slug):
     obj = Symptom.objects.get(name_slug=slug)
     return render(request, 'symptom_detail.html', {'symptom': obj})
+
+def homepage(request):
+    # return HttpResponse('homepage')
+    return render(request, 'homepage.html')
+
+def about(request):
+    # return HttpResponse('about')
+    return render(request, 'about.html')
+
+
+def article_list(request):
+    articles = Article.objects.all().order_by('date')
+    return render(request, 'article_list.html', { 'articles': articles })
+
+
+def article_detail(request, slug):
+    article = Article.objects.get(slug=slug)
+    return render(request, 'article_detail.html', { 'article': article })
+
+
+@login_required(login_url="/accounts/login/")
+def article_create(request):
+    if request.method == 'POST':
+        form = forms.CreateArticle(request.POST, request.FILES)
+        if form.is_valid():
+            # save article to db
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.slug = slugify(request.POST.get("title"))
+            instance.save()
+            return redirect('articles:list')
+    else:
+        form = forms.CreateArticle()
+    return render(request, 'article_create.html', { 'form': form })

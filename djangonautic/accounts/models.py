@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-
+from django.dispatch import receiver
 
 # Create your models here.
 # Always define an explicit primary key, just to be sure.
@@ -15,6 +15,13 @@ class DoctorProfile(models.Model):
 
 	def __str__(self):
 		return "<Doctor: " + self.user.__str__() + ">"
+
+@receiver(models.signals.post_save, sender=DoctorProfile)
+def execute_after_save(sender, instance, created, *args, **kwargs):
+	if created:
+		instance.user.is_staff = True
+		instance.user.save()
+
 
 
 class PatientProfile(models.Model):
@@ -62,3 +69,19 @@ class Disease(models.Model):
 
 	def __str__(self):
 		return "<" + self.name_slug.__str__() + ">"
+
+
+class Article(models.Model):
+	title = models.CharField(max_length=100)
+	slug = models.SlugField() # primary_key=True
+	body = models.TextField()
+	date = models.DateTimeField(auto_now_add=True)
+	thumb = models.ImageField(default='default.png', blank=True)
+	author = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+	related_disease = models.ManyToManyField(Disease, blank=True)
+
+	def __str__(self):
+		return self.title
+
+	def snippet(self):
+		return self.body[:50] + '...'
