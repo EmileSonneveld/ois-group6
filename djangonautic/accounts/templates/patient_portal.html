@@ -17,6 +17,11 @@
     At least one of your symptoms is linked to these diseases.
 <table id="relatedDiseasesTable" style="width:100%"></table>
 
+    <br/><br/><br/>
+<button onclick="MailDoctor(event);">Mail profile to doctor.</button>
+<a id="mailTo" target="_blank" href="mailto:user@host.name?subject=Medical question for patient&body=Hi,I found this website
+and thought you might like it http://www.geocities.com/wowhtml/">tell a friend</a>
+
 <script type="application/javascript">
     const get_all_disease = badGet("/accounts/get_all_disease")
     const get_all_symptom = badGet("/accounts/get_all_symptom")
@@ -177,7 +182,33 @@
         }
     }
 
+function GenerateMailToLink(evt)
+{
+    let mailBody = `
+Hi Doctor,
+
+I feel a little unhealthy. Could you take a look at my medical profile and see if we need to make an appointment?
+
+Link to my patient portal:
+${window.location.protocol}//${window.location.hostname}:${window.location.port}/accounts/patient_portal?patientId=6
+
+
+`
+    for (let key in get_all_patient_symptom) {
+        if (get_all_patient_symptom.hasOwnProperty(key)) {
+            let patientSymp = get_all_patient_symptom[key]
+            let symp = get_all_symptom[patientSymp["symptom"]]
+
+            mailBody += symp["name"] + ` with severity ${patientSymp["severity"]}/10.\n`
+        }
+    }
+    mailBody += "\n\nGreetings,\nYour dear patient."
+    const mailTo = document.getElementById("mailTo")
+    var doctors = ["hubert@medical.be", "dr.who@medical.be", "dr.strange@medical.be"]
+    var doc = doctors[Math.floor(Math.random()*doctors.length)];
+    mailTo.href = `mailto:${doc}?subject=Medical question from patient&body=` + encodeURIComponent(mailBody)
+}
+GenerateMailToLink()
 
 </script>
-
 {% endblock %}
