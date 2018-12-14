@@ -17,7 +17,7 @@ import json
 
 def slugify(text):
     text = unidecode.unidecode(text).lower()
-    return re.sub(r'[\W_]+', '-', text)
+    return re.sub(r'[\W_]+', '_', text)
 
 
 def git_pull(request):
@@ -36,7 +36,10 @@ def signup_view(request):
             user = form.save()
             #  log the user in
             login(request, user)
-            return redirect('ois_app:list')
+
+            p = PatientProfile(user=user, date_of_birth="1993-01-01")
+            p.save()
+            return redirect('ois_app:home')
     else:
         form = RegistrationForm()
     return render(request, 'signup.html', {'form': form})
@@ -52,7 +55,7 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                return redirect('ois_app:list')
+                return redirect('ois_app:home')
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
@@ -61,7 +64,7 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('ois_app:list')
+        return redirect('ois_app:home')
 
 
 def patient_portal(request):
@@ -142,7 +145,7 @@ def symptom_create(request):
             instance.added_by = DoctorProfile.objects.get(user=request.user)
             instance.name_slug = slugify(request.POST.get("name"))
             instance.save()
-            return redirect('ois_app:list')
+            return redirect('ois_app:symptom_list_as_doctor')
     else:
         form = forms.CreateSymptom()
     return render(request, 'symptom_create.html', {'form': form})
@@ -192,7 +195,7 @@ def article_create(request):
             instance.author = request.user
             instance.slug = slugify(request.POST.get("title"))
             instance.save()
-            return redirect('ois_app:list')
+            return redirect('ois_app:article_list')
     else:
         form = forms.CreateArticle()
     return render(request, 'article_create.html', { 'form': form })

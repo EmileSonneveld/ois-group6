@@ -28,7 +28,7 @@
                     <h3 class="masthead-brand">Medical Diagnostics</h3>
                     <nav class="nav nav-masthead">
                         <a class="nav-link" href="{% url 'ois_app:home' %}">Home</a>
-                        <a class="nav-link" href="{% url 'ois_app:list' %}">Articles</a>
+                        <a class="nav-link" href="{% url 'ois_app:symptom_list_as_doctor' %}">Articles</a>
                         {% if user.is_authenticated %}
                             {% if user.us %}
                                 <a class="nav-link" href="{% url 'ois_app:create' %}"> New article </a>
