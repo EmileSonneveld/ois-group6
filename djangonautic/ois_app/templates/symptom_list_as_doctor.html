@@ -6,44 +6,40 @@
         <tr>
             <th>slug</th>
             <th>name</th>
-            <th>description</th>
             <th>added_by</th>
         </tr>
         {% for elem in symptoms_added_by_me %}
             <tr>
                 <td><a href="{% url 'ois_app:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
-                <td>{{ elem.description }}</td>
                 <td>{{ elem.added_by.user.username }}</td>
             </tr>
         {% endfor %}
     </table>
-    {% if not symptoms_added_by_me%}
+    {% if not symptoms_added_by_me %}
         List is empty
     {% endif %}
     <br/>
-        <form action="{% url 'ois_app:symptom_create'%}">
-            <input type="submit" value="Create new symptom">
-        </form>
+    <form action="{% url 'ois_app:symptom_create' %}">
+        <input type="submit" value="Create new symptom">
+    </form>
     <br/><br/>
     <h1>Other Symptoms</h1>
     <table class="">
         <tr>
             <th>slug</th>
             <th>name</th>
-            <th>description</th>
             <th>added_by</th>
         </tr>
         {% for elem in symptoms_rest %}
             <tr>
                 <td><a href="{% url 'ois_app:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
-                <td>{{ elem.description }}</td>
                 <td>{{ elem.added_by.user.username }}</td>
             </tr>
         {% endfor %}
     </table>
-    {% if not symptoms_rest%}
+    {% if not symptoms_rest %}
         List is empty
     {% endif %}
 

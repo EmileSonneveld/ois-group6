@@ -160,15 +160,18 @@ def symptom_list_as_doctor(request):
         'symptoms_rest': symptoms_rest
     })
 
+
 def symptom_list_as_patient(request):
     symptoms_rest = Symptom.objects.all()
     return render(request, 'symptom_list_as_patient.html', {
         'symptoms_rest': symptoms_rest
     })
 
+
 def symptom_detail(request, slug):
     obj = Symptom.objects.get(name_slug=slug)
     return render(request, 'symptom_detail.html', {'symptom': obj})
+
 
 def homepage(request):
     # return HttpResponse('homepage')
@@ -177,12 +180,12 @@ def homepage(request):
 
 def article_list(request):
     articles = Article.objects.all().order_by('date')
-    return render(request, 'article_list.html', { 'articles': articles })
+    return render(request, 'article_list.html', {'articles': articles})
 
 
 def article_detail(request, slug):
     article = Article.objects.get(slug=slug)
-    return render(request, 'article_detail.html', { 'article': article })
+    return render(request, 'article_detail.html', {'article': article})
 
 
 @login_required(login_url="/login/")
@@ -198,4 +201,4 @@ def article_create(request):
             return redirect('ois_app:article_list')
     else:
         form = forms.CreateArticle()
-    return render(request, 'article_create.html', { 'form': form })
+    return render(request, 'article_create.html', {'form': form})

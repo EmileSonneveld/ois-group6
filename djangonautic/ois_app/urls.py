@@ -3,7 +3,6 @@ from . import views
 
 app_name = 'ois_app'
 
-
 urlpatterns = [
     url(r'^git_pull/$', views.git_pull, name="git_pull"),
     url(r'^signup/$', views.signup_view, name="signup"),
@@ -21,6 +20,6 @@ urlpatterns = [
     url(r'^symptom/', views.symptom_list_as_patient, name="symptom_list_as_patient"),
     url(r'^$', views.homepage, name="home"),
     url(r'^articles/$', views.article_list, name="article_list"),
-    url(r'^articles/create$',views.article_create, name="article_create"),
+    url(r'^articles/create$', views.article_create, name="article_create"),
     url(r'^articles/(?P<slug>[\w-]+)/$', views.article_detail, name="article_detail"),
 ]

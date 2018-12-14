@@ -5,38 +5,38 @@ from . import models
 
 
 class RegistrationForm(UserCreationForm):
-	email = forms.EmailField(required=True)
+    email = forms.EmailField(required=True)
 
-	class Meta:
-		model = User
-		fields = (
-			'username',
-			'first_name',
-			'last_name',
-			'email',
-			'password1',
-			'password2'
-		)
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2'
+        )
 
-	def save(self, commit=True):
-		user = super(RegistrationForm, self).save(commit=False)
-		user.first_name = self.cleaned_data['first_name']
-		user.last_name = self.cleaned_data['last_name']
-		user.email = self.cleaned_data['email']
+    def save(self, commit=True):
+        user = super(RegistrationForm, self).save(commit=False)
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data['email']
 
-		if commit:
-			user.save()
+        if commit:
+            user.save()
 
-		return user
+        return user
 
 
 class CreateSymptom(forms.ModelForm):
-	class Meta:
-		model = models.Symptom
-		fields = ['name', 'uri']
+    class Meta:
+        model = models.Symptom
+        fields = ['name', 'uri', "parent"]
 
 
 class CreateArticle(forms.ModelForm):
-	class Meta:
-		model = models.Article
-		fields = ['title', 'body', 'thumb', 'related_disease']
+    class Meta:
+        model = models.Article
+        fields = ['title', 'body', 'thumb', 'related_disease']

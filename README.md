@@ -11,7 +11,7 @@ python manage.py runserver 0.0.0.0:80
 superuser: admin, admin
 johny_doe, johny_doe
 
-python manage.py makemigrations accounts
+python manage.py makemigrations ois_app
 python manage.py migrate
 python manage.py runserver
 
@@ -24,4 +24,4 @@ In case of the database got currupted due to a bad migration.
 - Make an admin/superuser account
 - Make Admin a doctor. It's ID should be 1
 - Add the diseases/data following the examples in the PDF of deadline 2
-- Note that when making adding a DoctorProfile to a User, it will becoma a staff member.
+- For completeness: Add the symptoms from the slides
