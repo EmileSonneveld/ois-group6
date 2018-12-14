@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from .models import Article
 from django.contrib.auth.decorators import login_required
 from . import forms
+import re
+import unidecode
 
 def article_list(request):
     articles = Article.objects.all().order_by('date')
@@ -13,6 +15,11 @@ def article_detail(request, slug):
     article = Article.objects.get(slug=slug)
     return render(request, 'articles/article_detail.html', { 'article': article })
 
+
+def slugify(text):
+    text = unidecode.unidecode(text).lower()
+    return re.sub(r'[\W_]+', '-', text)
+
 @login_required(login_url="/accounts/login/")
 def article_create(request):
     if request.method == 'POST':
@@ -21,6 +28,7 @@ def article_create(request):
             # save article to db
             instance = form.save(commit=False)
             instance.author = request.user
+            instance.slug = slugify(request.POST.get("title"))
             instance.save()
             return redirect('articles:list')
     else:
