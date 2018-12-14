@@ -7,7 +7,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('accounts.urls')),
+    url(r'^', include('ois-app.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

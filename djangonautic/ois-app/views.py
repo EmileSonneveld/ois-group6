@@ -99,7 +99,7 @@ def get_all_patient_symptom(request):
 
 
 @require_http_methods(["GET", "POST"])
-@login_required(login_url="/accounts/login/")
+@login_required(login_url="/login/")
 def add_new_symptom_to_patient(request):
     if request.method == "POST":
         name_slug = request.POST.get("name_slug")
@@ -115,7 +115,7 @@ def add_new_symptom_to_patient(request):
 
 @csrf_exempt
 @require_http_methods(["POST"])
-@login_required(login_url="/accounts/login/")
+@login_required(login_url="/login/")
 def update_diagnosis(request):
     diagnosis = request.POST.get("diagnosis")
     symptom = request.POST.get("symptom")
@@ -132,7 +132,7 @@ def update_diagnosis(request):
     return HttpResponse("OK")
 
 
-@login_required(login_url="/accounts/login/")
+@login_required(login_url="/login/")
 def symptom_create(request):
     if request.method == 'POST':
         form = forms.CreateSymptom(request.POST, request.FILES)
@@ -170,10 +170,6 @@ def symptom_detail(request, slug):
 def homepage(request):
     # return HttpResponse('homepage')
     return render(request, 'homepage.html')
-
-def about(request):
-    # return HttpResponse('about')
-    return render(request, 'about.html')
 
 
 def article_list(request):
