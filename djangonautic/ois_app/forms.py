@@ -33,7 +33,7 @@ class RegistrationForm(UserCreationForm):
 class CreateSymptom(forms.ModelForm):
     class Meta:
         model = models.Symptom
-        fields = ['name', 'uri', "parent"]
+        fields = ['name', 'uri', "parent", "can_cause_symptom", "can_cause_disease"]
 
 
 class CreateArticle(forms.ModelForm):

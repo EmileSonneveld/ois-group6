@@ -19,6 +19,13 @@ def slugify(text):
     text = unidecode.unidecode(text).lower()
     return re.sub(r'[\W_]+', '_', text)
 
+# found no elegant way to pass data to the base_layout in every case
+def render_2(request, template_name, context=None, content_type=None, status=None, using=None):
+    if context is None:
+        context = {}
+    context["user_is_doctor"] = DoctorProfile.objects.filter(user=request.user).count()>0
+    context["user_is_patient"] = PatientProfile.objects.filter(user=request.user).count()>0
+    return render(request, template_name, context, content_type, status, using)
 
 def git_pull(request):
     if request.user.is_staff:
@@ -42,7 +49,7 @@ def signup_view(request):
             return redirect('ois_app:home')
     else:
         form = RegistrationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render_2(request, 'signup.html', {'form': form})
 
 
 def login_view(request):
@@ -58,7 +65,7 @@ def login_view(request):
                 return redirect('ois_app:home')
     else:
         form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+    return render_2(request, 'login.html', {'form': form})
 
 
 def logout_view(request):
@@ -68,7 +75,7 @@ def logout_view(request):
 
 
 def patient_portal(request):
-    return render(request, 'patient_portal.html')
+    return render_2(request, 'patient_portal.html')
 
 
 def query_result_to_array(list_object):
@@ -113,7 +120,7 @@ def add_new_symptom_to_patient(request):
         context = {"wasPostRequest": True}
     else:
         context = {"wasPostRequest": False}
-    return render(request, 'add_new_symptom_to_patient.html', context)
+    return render_2(request, 'add_new_symptom_to_patient.html', context)
 
 
 @csrf_exempt
@@ -148,14 +155,14 @@ def symptom_create(request):
             return redirect('ois_app:symptom_list_as_doctor')
     else:
         form = forms.CreateSymptom()
-    return render(request, 'symptom_create.html', {'form': form})
+    return render_2(request, 'symptom_create.html', {'form': form})
 
 
 def symptom_list_as_doctor(request):
     doctor = DoctorProfile.objects.get(user=request.user)
     symptoms_added_by_me = Symptom.objects.filter(added_by=doctor)
     symptoms_rest = Symptom.objects.exclude(added_by=doctor)
-    return render(request, 'symptom_list_as_doctor.html', {
+    return render_2(request, 'symptom_list_as_doctor.html', {
         'symptoms_added_by_me': symptoms_added_by_me,
         'symptoms_rest': symptoms_rest
     })
@@ -163,29 +170,29 @@ def symptom_list_as_doctor(request):
 
 def symptom_list_as_patient(request):
     symptoms_rest = Symptom.objects.all()
-    return render(request, 'symptom_list_as_patient.html', {
+    return render_2(request, 'symptom_list_as_patient.html', {
         'symptoms_rest': symptoms_rest
     })
 
 
 def symptom_detail(request, slug):
     obj = Symptom.objects.get(name_slug=slug)
-    return render(request, 'symptom_detail.html', {'symptom': obj})
+    return render_2(request, 'symptom_detail.html', {'symptom': obj})
 
 
 def homepage(request):
     # return HttpResponse('homepage')
-    return render(request, 'homepage.html')
+    return render_2(request, 'homepage.html')
 
 
 def article_list(request):
     articles = Article.objects.all().order_by('date')
-    return render(request, 'article_list.html', {'articles': articles})
+    return render_2(request, 'article_list.html', {'articles': articles})
 
 
 def article_detail(request, slug):
     article = Article.objects.get(slug=slug)
-    return render(request, 'article_detail.html', {'article': article})
+    return render_2(request, 'article_detail.html', {'article': article})
 
 
 @login_required(login_url="/login/")
@@ -201,4 +208,4 @@ def article_create(request):
             return redirect('ois_app:article_list')
     else:
         form = forms.CreateArticle()
-    return render(request, 'article_create.html', {'form': form})
+    return render_2(request, 'article_create.html', {'form': form})

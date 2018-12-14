@@ -5,11 +5,16 @@
     <div class="articles">
         {% for article in articles %}
             <div class="article">
-                <h2><a href="{% url 'ois_app:detail' slug=article.slug %}">{{ article.title }}</a></h2>
+                <h2><a href="{% url 'ois_app:article_detail' slug=article.slug %}">{{ article.title }}</a></h2>
                 <p>{{ article.snippet }}</p>
                 <p>{{ article.date }}</p>
                 <p class="author">added by {{ article.author.username }}</p>
             </div>
         {% endfor %}
     </div>
+    {% if user_is_doctor %}
+        <p>You are logged in as a doctor:
+            <a class="nav-link" href="{% url 'ois_app:article_create' %}">Make new article.</a>
+        </p>
+    {% endif %}
 {% endblock %}

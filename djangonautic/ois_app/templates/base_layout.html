@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+{% load templatetags_ois %}
 
 <!--<!DOCTYPE html>-->
 <html>
@@ -28,17 +29,22 @@
                     <h3 class="masthead-brand">Medical Diagnostics</h3>
                     <nav class="nav nav-masthead">
                         <a class="nav-link" href="{% url 'ois_app:home' %}">Home</a>
-                        <a class="nav-link" href="{% url 'ois_app:symptom_list_as_doctor' %}">Articles</a>
+                        <a class="nav-link" href="{% url 'ois_app:article_list' %}">Articles</a>
                         {% if user.is_authenticated %}
-                            {% if user.us %}
-                                <a class="nav-link" href="{% url 'ois_app:create' %}"> New article </a>
-                            {% else %}
+
+                            {% if user_is_patient %}
                                 <a class="nav-link" href="{% url 'ois_app:patient_portal' %}">Patient portal</a>
+                                <a class="nav-link" href="{% url 'ois_app:symptom_list_as_patient' %}">Symptoms</a>
                             {% endif %}
+
+                            {% if user_is_doctor %}
+                                <a class="nav-link" href="{% url 'ois_app:symptom_list_as_doctor' %}">Symptoms</a>
+                            {% endif %}
+
                             <a class="nav-link" action="{% url 'ois_app:logout' %}" method="post">
                                 <form action="{% url 'ois_app:logout' %}" method="post">
                                     {% csrf_token %}
-                                    <button class="logoutBotton" type="submit">Logout</button>
+                                    <button class="logoutBotton" type="submit">Logout {{ user.username }}</button>
                                 </form>
                             </a>
                         {% else %}
@@ -58,8 +64,7 @@
 
 </div>
 
-<!-- Bootstrap core JavaScript
-    ================================================== -->
+
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
         integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
