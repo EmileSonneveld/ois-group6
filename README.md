@@ -15,4 +15,4 @@ python manage.py makemigrations accounts
 python manage.py migrate
 python manage.py runserver
 
-http://health.thendrie.be/git_pull/
+http://health.thendrie.be/accounts/git_pull/
