@@ -30,7 +30,7 @@ class RegistrationForm(UserCreationForm):
 		return user
 
 
-class CreateDisease(forms.ModelForm):
+class CreateSymptom(forms.ModelForm):
 	class Meta:
-		model = models.Disease
-		fields = ['name', 'description', 'uri']
+		model = models.Symptom
+		fields = ['name', 'uri']

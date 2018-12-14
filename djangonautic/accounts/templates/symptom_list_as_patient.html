@@ -4,13 +4,13 @@
     <h1>List</h1>
     <table class="">
         <tr>
+            <th>slug</th>
             <th>name</th>
-            <th>description</th>
         </tr>
-        {% for elem in diseases_rest %}
+        {% for elem in symptoms_rest %}
             <tr>
-                <td><a href="{% url 'accounts:symptom_detail' slug=elem.name_slug %}">{{ elem.name }}</a></td>
-                <td>{{ elem.description }}</td>
+                <td><a href="{% url 'accounts:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
+                <td>{{ elem.name }}</td>
             </tr>
         {% endfor %}
     </table>

@@ -3,10 +3,13 @@
 {% block content %}
 <div class="">
     <div class="">
-        <h2>{{ disease.name }}</h2>
-        <i>Added by {{ disease.added_by.user.username }}</i>
-        <p>{{ disease.description }}</p>
-        <p><b>Uri: </b>{{ disease.uri }}</p>
+        <h2>{{ symptom.name }}</h2>
+        <i>Added by {{ symptom.added_by.user.username }}</i> <br/>
+        {% if symptom.parent %}
+            <i>Under symptom <a href="{% url 'accounts:symptom_detail' slug=symptom.parent.name_slug %}">{{ symptom.parent }}</a></i>
+        {% endif %}
+        <p>{{ symptom.description }}</p>
+        <p><b>Uri: </b>{{ symptom.uri }}</p>
     </div>
 </div>
 {% endblock %}

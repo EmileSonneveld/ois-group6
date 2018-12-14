@@ -7,6 +7,8 @@ from django.db.models.signals import post_save
 # Always define an explicit primary key, just to be sure.
 # Don't provide 'user friendly' names. Because they are not programmer friendly.
 
+ADMIN_DOCTOR_ID = 1
+
 class DoctorProfile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, )
 	speciality = models.CharField(max_length=1000)
@@ -45,12 +47,10 @@ class Symptom(models.Model):
 	parent = models.ForeignKey('Symptom', on_delete=models.CASCADE, null=True, blank=True, related_name="contains")
 	can_cause_symptom = models.ManyToManyField('Symptom', blank=True)
 	can_cause_disease = models.ManyToManyField('Disease', blank=True)
+	added_by = models.ForeignKey(DoctorProfile, default=ADMIN_DOCTOR_ID, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return "<" + self.name_slug.__str__() + ">"
-
-
-ADMIN_DOCTOR_ID = 1
 
 
 class Disease(models.Model):

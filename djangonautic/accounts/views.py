@@ -150,19 +150,19 @@ def symptom_create(request):
 
 def symptom_list_as_doctor(request):
     doctor = DoctorProfile.objects.get(user=request.user)
-    diseases_added_by_me = Disease.objects.filter(added_by=doctor)
-    diseases_rest = Disease.objects.exclude(added_by=doctor)
+    symptoms_added_by_me = Symptom.objects.filter(added_by=doctor)
+    symptoms_rest = Symptom.objects.exclude(added_by=doctor)
     return render(request, 'symptom_list_as_doctor.html', {
-        'diseases_added_by_me': diseases_added_by_me,
-        'diseases_rest': diseases_rest
+        'symptoms_added_by_me': symptoms_added_by_me,
+        'symptoms_rest': symptoms_rest
     })
 
 def symptom_list_as_patient(request):
-    diseases_rest = Disease.objects.all()
+    symptoms_rest = Symptom.objects.all()
     return render(request, 'symptom_list_as_patient.html', {
-        'diseases_rest': diseases_rest
+        'symptoms_rest': symptoms_rest
     })
 
 def symptom_detail(request, slug):
-    obj = Disease.objects.get(name_slug=slug)
-    return render(request, 'symptom_detail.html', {'disease': obj})
+    obj = Symptom.objects.get(name_slug=slug)
+    return render(request, 'symptom_detail.html', {'symptom': obj})
