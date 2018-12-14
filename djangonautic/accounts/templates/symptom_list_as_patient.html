@@ -9,7 +9,7 @@
         </tr>
         {% for elem in diseases_rest %}
             <tr>
-                <td><a href="{% url 'accounts:disease_detail' slug=elem.name_slug %}">{{ elem.name }}</a></td>
+                <td><a href="{% url 'accounts:symptom_detail' slug=elem.name_slug %}">{{ elem.name }}</a></td>
                 <td>{{ elem.description }}</td>
             </tr>
         {% endfor %}

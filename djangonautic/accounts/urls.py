@@ -15,9 +15,9 @@ urlpatterns = [
     url(r'^get_all_disease$', views.get_all_disease, name="get_all_disease"),
     url(r'^add_new_symptom_to_patient$', views.add_new_symptom_to_patient, name="add_new_symptom_to_patient"),
     url(r'^update_diagnosis$', views.update_diagnosis, name="update_diagnosis"),
-    url(r'^disease/create$', views.disease_create, name="disease_create"),
-    url(r'^disease/(?P<slug>[\w-]+)/$', views.disease_detail, name="disease_detail"),
-    url(r'^disease/disease_list_as_doctor', views.disease_list_as_doctor, name="disease_list_as_doctor"),
-    url(r'^disease/', views.disease_list_as_patient, name="disease_list_as_patient"),
+    url(r'^symptom/create$', views.symptom_create, name="symptom_create"),
+    url(r'^symptom/(?P<slug>[\w-]+)/$', views.symptom_detail, name="symptom_detail"),
+    url(r'^symptom/symptom_list_as_doctor', views.symptom_list_as_doctor, name="symptom_list_as_doctor"),
+    url(r'^symptom/', views.symptom_list_as_patient, name="symptom_list_as_patient"),
 
 ]

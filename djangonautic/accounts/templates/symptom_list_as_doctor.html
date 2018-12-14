@@ -11,7 +11,7 @@
         </tr>
         {% for elem in diseases_added_by_me %}
             <tr>
-                <td><a href="{% url 'accounts:disease_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
+                <td><a href="{% url 'accounts:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
                 <td>{{ elem.description }}</td>
                 <td>{{ elem.added_by.user.username }}</td>
@@ -31,7 +31,7 @@
         </tr>
         {% for elem in diseases_rest %}
             <tr>
-                <td><a href="{% url 'accounts:disease_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
+                <td><a href="{% url 'accounts:symptom_detail' slug=elem.name_slug %}">{{ elem.name_slug }}</a></td>
                 <td>{{ elem.name }}</td>
                 <td>{{ elem.description }}</td>
                 <td>{{ elem.added_by.user.username }}</td>

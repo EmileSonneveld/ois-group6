@@ -133,7 +133,7 @@ def update_diagnosis(request):
 
 
 @login_required(login_url="/accounts/login/")
-def disease_create(request):
+def symptom_create(request):
     if request.method == 'POST':
         form = forms.CreateDisease(request.POST, request.FILES)
         if form.is_valid():
@@ -145,24 +145,24 @@ def disease_create(request):
             return redirect('articles:list')
     else:
         form = forms.CreateDisease()
-    return render(request, 'disease_create.html', {'form': form})
+    return render(request, 'symptom_create.html', {'form': form})
 
 
-def disease_list_as_doctor(request):
+def symptom_list_as_doctor(request):
     doctor = DoctorProfile.objects.get(user=request.user)
     diseases_added_by_me = Disease.objects.filter(added_by=doctor)
     diseases_rest = Disease.objects.exclude(added_by=doctor)
-    return render(request, 'disease_list_as_doctor.html', {
+    return render(request, 'symptom_list_as_doctor.html', {
         'diseases_added_by_me': diseases_added_by_me,
         'diseases_rest': diseases_rest
     })
 
-def disease_list_as_patient(request):
+def symptom_list_as_patient(request):
     diseases_rest = Disease.objects.all()
-    return render(request, 'disease_list_as_patient.html', {
+    return render(request, 'symptom_list_as_patient.html', {
         'diseases_rest': diseases_rest
     })
 
-def disease_detail(request, slug):
+def symptom_detail(request, slug):
     obj = Disease.objects.get(name_slug=slug)
-    return render(request, 'disease_detail.html', {'disease': obj})
+    return render(request, 'symptom_detail.html', {'disease': obj})

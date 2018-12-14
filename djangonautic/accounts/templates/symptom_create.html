@@ -4,7 +4,7 @@
     <div class="">
         <h2>Add a new disease to this world</h2>
         <i>You sick basterd!</i>
-        <form class="site-form" action="{% url 'accounts:disease_create' %}" method="post" enctype="multipart/form-data">
+        <form class="site-form" action="{% url 'accounts:symptom_create' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Create">

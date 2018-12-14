@@ -18,9 +18,9 @@
 <table id="relatedDiseasesTable" style="width:100%"></table>
 
     <br/><br/><br/>
-<button onclick="MailDoctor(event);">Mail profile to doctor.</button>
+
 <a id="mailTo" target="_blank" href="mailto:user@host.name?subject=Medical question for patient&body=Hi,I found this website
-and thought you might like it http://www.geocities.com/wowhtml/">tell a friend</a>
+and thought you might like it http://www.geocities.com/wowhtml/">Mail profile to doctor.</a>
 
 <script type="application/javascript">
     const get_all_disease = badGet("/accounts/get_all_disease")
@@ -30,7 +30,7 @@ and thought you might like it http://www.geocities.com/wowhtml/">tell a friend</
     const potential_diseases = {} // a Set
     const symps_for_user = []
 
-    const disease_caused_by_symptom = {} // Dict Dict
+    const symptom_caused_by_symptom = {} // Dict Dict
     for (let sympKey in get_all_symptom) {
         if (get_all_symptom.hasOwnProperty(sympKey)) {
             let ccd = get_all_symptom[sympKey]["can_cause_disease"]
@@ -39,9 +39,9 @@ and thought you might like it http://www.geocities.com/wowhtml/">tell a friend</
                 if (ccd.hasOwnProperty(key2)) {
                     const disKey = ccd[key2]
 
-                    if(disease_caused_by_symptom[disKey] == null)
-                        disease_caused_by_symptom[disKey] = {}
-                    disease_caused_by_symptom[disKey][sympKey] = true
+                    if(symptom_caused_by_symptom[disKey] == null)
+                        symptom_caused_by_symptom[disKey] = {}
+                    symptom_caused_by_symptom[disKey][sympKey] = true
                 }
             }
         }
@@ -67,7 +67,7 @@ and thought you might like it http://www.geocities.com/wowhtml/">tell a friend</
     const dis_sure = {} // Set
     for (let disKey in potential_diseases) {
         if (potential_diseases.hasOwnProperty(disKey)) {
-            const symps = disease_caused_by_symptom[disKey]
+            const symps = symptom_caused_by_symptom[disKey]
 
             let allOk = true
             for (let sympKey in symps) {
