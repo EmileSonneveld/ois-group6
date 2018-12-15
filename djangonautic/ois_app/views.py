@@ -29,12 +29,14 @@ def render_2(request, template_name, context=None, content_type=None, status=Non
     return render(request, template_name, context, content_type, status, using)
 
 def git_pull(request):
-    if request.user.is_staff:
-        data = check_output(["git", "pull"])
-        # data += check_output(["systemctl", "restart", "gunicorn"])  # Doesn't work (no root)
-        return HttpResponse(data, content_type='text/plain')
-    else:
-        return HttpResponse('Nice try.', status=401)
+    #if request.user.is_staff:
+
+    data = check_output(["git", "pull"])
+    # data += check_output(["systemctl", "restart", "gunicorn"])  # Doesn't work (no root)
+    return HttpResponse(data, content_type='text/plain')
+    
+    #else:
+    #    return HttpResponse('Nice try.', status=401)
 
 
 def signup_view(request):
