@@ -23,8 +23,9 @@ def slugify(text):
 def render_2(request, template_name, context=None, content_type=None, status=None, using=None):
     if context is None:
         context = {}
-    context["user_is_doctor"] = DoctorProfile.objects.filter(user=request.user).count()>0
-    context["user_is_patient"] = PatientProfile.objects.filter(user=request.user).count()>0
+    if request.user.is_authenticated:
+        context["user_is_doctor"] = DoctorProfile.objects.filter(user=request.user).count()>0
+        context["user_is_patient"] = PatientProfile.objects.filter(user=request.user).count()>0
     return render(request, template_name, context, content_type, status, using)
 
 def git_pull(request):
