@@ -1,0 +1,944 @@
+[
+	{
+		"fields": {
+			"app_label": "admin",
+			"model": "logentry"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 1
+	},
+	{
+		"fields": {
+			"app_label": "auth",
+			"model": "permission"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 2
+	},
+	{
+		"fields": {
+			"app_label": "auth",
+			"model": "group"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 3
+	},
+	{
+		"fields": {
+			"app_label": "auth",
+			"model": "user"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 4
+	},
+	{
+		"fields": {
+			"app_label": "contenttypes",
+			"model": "contenttype"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 5
+	},
+	{
+		"fields": {
+			"app_label": "sessions",
+			"model": "session"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 6
+	},
+	{
+		"fields": {
+			"app_label": "ois_app",
+			"model": "article"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 7
+	},
+	{
+		"fields": {
+			"app_label": "ois_app",
+			"model": "diagnosis"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 8
+	},
+	{
+		"fields": {
+			"app_label": "ois_app",
+			"model": "disease"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 9
+	},
+	{
+		"fields": {
+			"app_label": "ois_app",
+			"model": "doctorprofile"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 10
+	},
+	{
+		"fields": {
+			"app_label": "ois_app",
+			"model": "patientprofile"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 11
+	},
+	{
+		"fields": {
+			"app_label": "ois_app",
+			"model": "symptom"
+		},
+		"model": "contenttypes.contenttype",
+		"pk": 12
+	},
+	{
+		"fields": {
+			"expire_date": "2018-12-28T21:11:45.916Z",
+			"session_data": "MTA4NTI1Y2UzODcyMzhmY2RlOTQ3ODQ2ZmNhNGMwM2FmYzc3NWQyYzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiZDY4ODJmYzE1NDdhZGMwMzFiYWVmOTAwYTY1YmZmMzk3OWQ3ZDA1In0="
+		},
+		"model": "sessions.session",
+		"pk": "0topg9b3e53l18phcji5woumpobjnn3o"
+	},
+	{
+		"fields": {
+			"expire_date": "2018-12-28T20:55:51.817Z",
+			"session_data": "Zjg2ZjgzOTgzZjEzMDNjMDU2Y2YxMDVjZTk2NzBkNDExYTZkZDk5MTp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3MjI3MmM5ZGQzZGIxY2NjMzRlM2M5ODg1OGNjMWI4NDAzNTljZGNjIn0="
+		},
+		"model": "sessions.session",
+		"pk": "9dem1hsujq65q9tt852q07ru1hsii733"
+	},
+	{
+		"fields": {
+			"expire_date": "2018-12-29T12:43:41.085Z",
+			"session_data": "OTBiNzZkNzIxM2QzZGQyOTA5MGZkMDE0MDkxZmFjOTU3NzE4MGQ1NTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZGIxNTg5M2NkZTVjYTFjOGQ2ODMyODFiNjgzOTU2ZTRkOTZjNDRkIn0="
+		},
+		"model": "sessions.session",
+		"pk": "uuyl075nifn5nq69aicdz2gwpy7v255u"
+	},
+	{
+		"fields": {
+			"end_date": null,
+			"patient": 3,
+			"severity": 0,
+			"start_date": null,
+			"symptom": "abdominal_rigidity"
+		},
+		"model": "ois_app.diagnosis",
+		"pk": 1
+	},
+	{
+		"fields": {
+			"end_date": null,
+			"patient": 3,
+			"severity": 0,
+			"start_date": null,
+			"symptom": "muscular_cramp"
+		},
+		"model": "ois_app.diagnosis",
+		"pk": 2
+	},
+	{
+		"fields": {
+			"added_by": 4,
+			"can_cause_disease": [
+				"dancing_plague_of_1518"
+			],
+			"can_cause_symptom": [
+				"muscular_cramp"
+			],
+			"name": "Abdominal Rigidity",
+			"parent": "abdominal_symptom",
+			"uri": "SYMP_0000454"
+		},
+		"model": "ois_app.symptom",
+		"pk": "abdominal_rigidity"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Abdominal symptom",
+			"parent": "root_symptom",
+			"uri": "SYMP_0000454"
+		},
+		"model": "ois_app.symptom",
+		"pk": "abdominal_symptom"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [
+				"dancing_plague_of_1518",
+				"tourette"
+			],
+			"can_cause_symptom": [],
+			"name": "Muscular Cramp",
+			"parent": "muscular_symptom",
+			"uri": "SYMP_0000093"
+		},
+		"model": "ois_app.symptom",
+		"pk": "muscular_cramp"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Muscular Symptom",
+			"parent": "root_symptom",
+			"uri": "SYMP_0000183"
+		},
+		"model": "ois_app.symptom",
+		"pk": "muscular_symptom"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [
+				"tourette"
+			],
+			"can_cause_symptom": [],
+			"name": "Neurological Symptom",
+			"parent": "root_symptom",
+			"uri": null
+		},
+		"model": "ois_app.symptom",
+		"pk": "neurological_symptom"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Root Symptom",
+			"parent": null,
+			"uri": "SYMP_0000462"
+		},
+		"model": "ois_app.symptom",
+		"pk": "root_symptom"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"description": "a case of dancing mania that occurred in Strasbourg, Alsace, in the Holy Roman Empire in July 1518.",
+			"name": "Dancing plague (1518)",
+			"uri": null
+		},
+		"model": "ois_app.disease",
+		"pk": "dancing_plague_of_1518"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"description": "Characterized by repetitive, stereotyped, involuntary movements and vocalizations called tics.",
+			"name": "Gilles de la Tourette",
+			"uri": "DOID_11119"
+		},
+		"model": "ois_app.disease",
+		"pk": "tourette"
+	},
+	{
+		"fields": {
+			"codename": "add_logentry",
+			"content_type": 1,
+			"name": "Can add log entry"
+		},
+		"model": "auth.permission",
+		"pk": 1
+	},
+	{
+		"fields": {
+			"codename": "change_logentry",
+			"content_type": 1,
+			"name": "Can change log entry"
+		},
+		"model": "auth.permission",
+		"pk": 2
+	},
+	{
+		"fields": {
+			"codename": "delete_logentry",
+			"content_type": 1,
+			"name": "Can delete log entry"
+		},
+		"model": "auth.permission",
+		"pk": 3
+	},
+	{
+		"fields": {
+			"codename": "add_permission",
+			"content_type": 2,
+			"name": "Can add permission"
+		},
+		"model": "auth.permission",
+		"pk": 4
+	},
+	{
+		"fields": {
+			"codename": "change_permission",
+			"content_type": 2,
+			"name": "Can change permission"
+		},
+		"model": "auth.permission",
+		"pk": 5
+	},
+	{
+		"fields": {
+			"codename": "delete_permission",
+			"content_type": 2,
+			"name": "Can delete permission"
+		},
+		"model": "auth.permission",
+		"pk": 6
+	},
+	{
+		"fields": {
+			"codename": "add_group",
+			"content_type": 3,
+			"name": "Can add group"
+		},
+		"model": "auth.permission",
+		"pk": 7
+	},
+	{
+		"fields": {
+			"codename": "change_group",
+			"content_type": 3,
+			"name": "Can change group"
+		},
+		"model": "auth.permission",
+		"pk": 8
+	},
+	{
+		"fields": {
+			"codename": "delete_group",
+			"content_type": 3,
+			"name": "Can delete group"
+		},
+		"model": "auth.permission",
+		"pk": 9
+	},
+	{
+		"fields": {
+			"codename": "add_user",
+			"content_type": 4,
+			"name": "Can add user"
+		},
+		"model": "auth.permission",
+		"pk": 10
+	},
+	{
+		"fields": {
+			"codename": "change_user",
+			"content_type": 4,
+			"name": "Can change user"
+		},
+		"model": "auth.permission",
+		"pk": 11
+	},
+	{
+		"fields": {
+			"codename": "delete_user",
+			"content_type": 4,
+			"name": "Can delete user"
+		},
+		"model": "auth.permission",
+		"pk": 12
+	},
+	{
+		"fields": {
+			"codename": "add_contenttype",
+			"content_type": 5,
+			"name": "Can add content type"
+		},
+		"model": "auth.permission",
+		"pk": 13
+	},
+	{
+		"fields": {
+			"codename": "change_contenttype",
+			"content_type": 5,
+			"name": "Can change content type"
+		},
+		"model": "auth.permission",
+		"pk": 14
+	},
+	{
+		"fields": {
+			"codename": "delete_contenttype",
+			"content_type": 5,
+			"name": "Can delete content type"
+		},
+		"model": "auth.permission",
+		"pk": 15
+	},
+	{
+		"fields": {
+			"codename": "add_session",
+			"content_type": 6,
+			"name": "Can add session"
+		},
+		"model": "auth.permission",
+		"pk": 16
+	},
+	{
+		"fields": {
+			"codename": "change_session",
+			"content_type": 6,
+			"name": "Can change session"
+		},
+		"model": "auth.permission",
+		"pk": 17
+	},
+	{
+		"fields": {
+			"codename": "delete_session",
+			"content_type": 6,
+			"name": "Can delete session"
+		},
+		"model": "auth.permission",
+		"pk": 18
+	},
+	{
+		"fields": {
+			"codename": "add_article",
+			"content_type": 7,
+			"name": "Can add article"
+		},
+		"model": "auth.permission",
+		"pk": 19
+	},
+	{
+		"fields": {
+			"codename": "change_article",
+			"content_type": 7,
+			"name": "Can change article"
+		},
+		"model": "auth.permission",
+		"pk": 20
+	},
+	{
+		"fields": {
+			"codename": "delete_article",
+			"content_type": 7,
+			"name": "Can delete article"
+		},
+		"model": "auth.permission",
+		"pk": 21
+	},
+	{
+		"fields": {
+			"codename": "add_diagnosis",
+			"content_type": 8,
+			"name": "Can add diagnosis"
+		},
+		"model": "auth.permission",
+		"pk": 22
+	},
+	{
+		"fields": {
+			"codename": "change_diagnosis",
+			"content_type": 8,
+			"name": "Can change diagnosis"
+		},
+		"model": "auth.permission",
+		"pk": 23
+	},
+	{
+		"fields": {
+			"codename": "delete_diagnosis",
+			"content_type": 8,
+			"name": "Can delete diagnosis"
+		},
+		"model": "auth.permission",
+		"pk": 24
+	},
+	{
+		"fields": {
+			"codename": "add_disease",
+			"content_type": 9,
+			"name": "Can add disease"
+		},
+		"model": "auth.permission",
+		"pk": 25
+	},
+	{
+		"fields": {
+			"codename": "change_disease",
+			"content_type": 9,
+			"name": "Can change disease"
+		},
+		"model": "auth.permission",
+		"pk": 26
+	},
+	{
+		"fields": {
+			"codename": "delete_disease",
+			"content_type": 9,
+			"name": "Can delete disease"
+		},
+		"model": "auth.permission",
+		"pk": 27
+	},
+	{
+		"fields": {
+			"codename": "add_doctorprofile",
+			"content_type": 10,
+			"name": "Can add doctor profile"
+		},
+		"model": "auth.permission",
+		"pk": 28
+	},
+	{
+		"fields": {
+			"codename": "change_doctorprofile",
+			"content_type": 10,
+			"name": "Can change doctor profile"
+		},
+		"model": "auth.permission",
+		"pk": 29
+	},
+	{
+		"fields": {
+			"codename": "delete_doctorprofile",
+			"content_type": 10,
+			"name": "Can delete doctor profile"
+		},
+		"model": "auth.permission",
+		"pk": 30
+	},
+	{
+		"fields": {
+			"codename": "add_patientprofile",
+			"content_type": 11,
+			"name": "Can add patient profile"
+		},
+		"model": "auth.permission",
+		"pk": 31
+	},
+	{
+		"fields": {
+			"codename": "change_patientprofile",
+			"content_type": 11,
+			"name": "Can change patient profile"
+		},
+		"model": "auth.permission",
+		"pk": 32
+	},
+	{
+		"fields": {
+			"codename": "delete_patientprofile",
+			"content_type": 11,
+			"name": "Can delete patient profile"
+		},
+		"model": "auth.permission",
+		"pk": 33
+	},
+	{
+		"fields": {
+			"codename": "add_symptom",
+			"content_type": 12,
+			"name": "Can add symptom"
+		},
+		"model": "auth.permission",
+		"pk": 34
+	},
+	{
+		"fields": {
+			"codename": "change_symptom",
+			"content_type": 12,
+			"name": "Can change symptom"
+		},
+		"model": "auth.permission",
+		"pk": 35
+	},
+	{
+		"fields": {
+			"codename": "delete_symptom",
+			"content_type": 12,
+			"name": "Can delete symptom"
+		},
+		"model": "auth.permission",
+		"pk": 36
+	},
+	{
+		"fields": {
+			"date_joined": "2018-12-14T20:46:38.524Z",
+			"email": "",
+			"first_name": "",
+			"groups": [],
+			"is_active": true,
+			"is_staff": true,
+			"is_superuser": true,
+			"last_login": "2018-12-15T12:43:41.075Z",
+			"last_name": "",
+			"password": "pbkdf2_sha256$100000$95e6rCvVnr1r$Z9MhuKvMoLNAgE6a7GTxj8Mq38tD3fIT8s22AwzZY0g=",
+			"user_permissions": [],
+			"username": "admin"
+		},
+		"model": "auth.user",
+		"pk": 1
+	},
+	{
+		"fields": {
+			"date_joined": "2018-12-14T20:55:51.724Z",
+			"email": "a@a.com",
+			"first_name": "Johny",
+			"groups": [],
+			"is_active": true,
+			"is_staff": false,
+			"is_superuser": false,
+			"last_login": "2018-12-14T20:55:51.802Z",
+			"last_name": "Doe",
+			"password": "pbkdf2_sha256$100000$gyuvuVerFkFa$4N4iLrEtX175/esJ6hpG+svvUElzYqtOsbQZuuDv/ds=",
+			"user_permissions": [],
+			"username": "johny_doe"
+		},
+		"model": "auth.user",
+		"pk": 3
+	},
+	{
+		"fields": {
+			"date_joined": "2018-12-14T21:11:45.822Z",
+			"email": "patrick@ois.be",
+			"first_name": "Patrick",
+			"groups": [],
+			"is_active": true,
+			"is_staff": true,
+			"is_superuser": false,
+			"last_login": "2018-12-14T21:11:45.901Z",
+			"last_name": "Van Den Broek",
+			"password": "pbkdf2_sha256$100000$bE6QpXAxwMc7$y6a/W3+Tom7D8vNo25MEOf1SmxCJLvBwrjrSO7uu5Mc=",
+			"user_permissions": [],
+			"username": "dr_patrick"
+		},
+		"model": "auth.user",
+		"pk": 4
+	},
+	{
+		"fields": {
+			"speciality": "Adding people to the database."
+		},
+		"model": "ois_app.doctorprofile",
+		"pk": 1
+	},
+	{
+		"fields": {
+			"speciality": "Pensioen zorg."
+		},
+		"model": "ois_app.doctorprofile",
+		"pk": 4
+	},
+	{
+		"fields": {
+			"date_of_birth": "1993-01-01",
+			"phone": ""
+		},
+		"model": "ois_app.patientprofile",
+		"pk": 3
+	},
+	{
+		"fields": {
+			"author": 1,
+			"body": "Dancing disease.\r\nSearch for it on wikipedia!",
+			"date": "2018-12-14T22:03:59.655Z",
+			"related_disease": [],
+			"slug": "hey_hoy_artikkel_",
+			"thumb": "default.png",
+			"title": "Hey hoy Artikkel!"
+		},
+		"model": "ois_app.article",
+		"pk": 1
+	},
+	{
+		"fields": {
+			"action_flag": 3,
+			"action_time": "2018-12-14T20:55:34.709Z",
+			"change_message": "",
+			"content_type": 4,
+			"object_id": "2",
+			"object_repr": "johny_doe",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 1
+	},
+	{
+		"fields": {
+			"action_flag": 1,
+			"action_time": "2018-12-14T20:57:52.971Z",
+			"change_message": "[{\"added\": {}}]",
+			"content_type": 10,
+			"object_id": "1",
+			"object_repr": "<Doctor: admin>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 2
+	},
+	{
+		"fields": {
+			"action_flag": 1,
+			"action_time": "2018-12-14T21:08:54.147Z",
+			"change_message": "[{\"added\": {}}]",
+			"content_type": 9,
+			"object_id": "dancing_plague_of_1518",
+			"object_repr": "<dancing_plague_of_1518>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 3
+	},
+	{
+		"fields": {
+			"action_flag": 1,
+			"action_time": "2018-12-14T21:09:30.523Z",
+			"change_message": "[{\"added\": {}}]",
+			"content_type": 9,
+			"object_id": "tourette",
+			"object_repr": "<tourette>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 4
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T21:10:01.662Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "neurological_symptom",
+			"object_repr": "<neurological_symptom>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 5
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T21:10:17.792Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"parent\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_symptom",
+			"object_repr": "<muscular_symptom>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 6
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T21:10:30.209Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"parent\", \"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_cramp",
+			"object_repr": "<muscular_cramp>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 7
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T21:10:38.475Z",
+			"change_message": "[]",
+			"content_type": 12,
+			"object_id": "abdominal_symptom",
+			"object_repr": "<abdominal_symptom>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 8
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T21:11:00.413Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"parent\", \"can_cause_symptom\", \"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "abdominal_rigidity",
+			"object_repr": "<abdominal_rigidity>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 9
+	},
+	{
+		"fields": {
+			"action_flag": 1,
+			"action_time": "2018-12-14T21:12:18.408Z",
+			"change_message": "[{\"added\": {}}]",
+			"content_type": 10,
+			"object_id": "4",
+			"object_repr": "<Doctor: dr_patrick>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 10
+	},
+	{
+		"fields": {
+			"action_flag": 3,
+			"action_time": "2018-12-14T21:12:37.948Z",
+			"change_message": "",
+			"content_type": 11,
+			"object_id": "4",
+			"object_repr": "<Patient: dr_patrick>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 11
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T21:12:54.695Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"added_by\"]}}]",
+			"content_type": 12,
+			"object_id": "abdominal_rigidity",
+			"object_repr": "<abdominal_rigidity>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 12
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:13:06.326Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 9,
+			"object_id": "tourette",
+			"object_repr": "<tourette>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 13
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:13:31.510Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_symptom",
+			"object_repr": "<muscular_symptom>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 14
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:14:19.238Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "root_symptom",
+			"object_repr": "<root_symptom>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 15
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:15:19.966Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "root_symptom",
+			"object_repr": "<root_symptom>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 16
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:15:31.352Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_symptom",
+			"object_repr": "<muscular_symptom>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 17
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:15:44.403Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_cramp",
+			"object_repr": "<muscular_cramp>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 18
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:16:00.774Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "abdominal_symptom",
+			"object_repr": "<abdominal_symptom>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 19
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:16:12.563Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "abdominal_rigidity",
+			"object_repr": "<abdominal_rigidity>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 20
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:21:06.792Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_cramp",
+			"object_repr": "<muscular_cramp>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 21
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-14T22:24:41.814Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 9,
+			"object_id": "tourette",
+			"object_repr": "<tourette>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 22
+	}
+]

@@ -25,3 +25,6 @@ In case of the database got currupted due to a bad migration.
 - Make Admin a doctor. It's ID should be 1
 - Add the diseases/data following the examples in the PDF of deadline 2
 - For completeness: Add the symptoms from the slides
+
+Postgresql should be running locally
+Migrate from sqlite to other kind of database: https://gist.github.com/sirodoht/f598d14e9644e2d3909629a41e3522ad
