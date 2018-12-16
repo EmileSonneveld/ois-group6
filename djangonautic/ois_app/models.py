@@ -58,7 +58,11 @@ class Symptom(models.Model):
     added_by = models.ForeignKey(DoctorProfile, default=ADMIN_DOCTOR_ID, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "<" + self.name_slug.__str__() + ">"
+        stri = "<" + self.name_slug.__str__()
+        if self.uri:
+            stri += " : " + self.uri.__str__()
+        stri += ">"
+        return stri
 
 
 class Disease(models.Model):
