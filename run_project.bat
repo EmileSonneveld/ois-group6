@@ -1,3 +1,4 @@
+:: Put a shortcut to this file in "shell:common startup"
 cd djangonautic
 start runserver.bat
 cd ..
