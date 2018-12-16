@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'NAME': 'ois',
         'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'admin',
+        'USER': 'postgres',
         'PASSWORD': 'admin'
     },
 }

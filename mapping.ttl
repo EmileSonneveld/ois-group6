@@ -10,8 +10,8 @@
 map:database a d2rq:Database;
 	d2rq:jdbcDriver "org.postgresql.Driver";
 	d2rq:jdbcDSN "jdbc:postgresql://localhost/ois";
-	d2rq:username "emile";
-	d2rq:password "Brussel=luid";
+	d2rq:username "postgres";
+	d2rq:password "admin";
 	.
 
 # Table auth_group

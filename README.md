@@ -6,6 +6,7 @@ pip install gunicorn
 pip install Pillow
 pip install unidecode
 pip install Django
+pip install psycop2
 python manage.py runserver 0.0.0.0:80
 
 superuser: admin, admin
