@@ -16,3 +16,12 @@ input:read-only {
 	background-color: #ffffff85;
 	border-style: solid;
 }
+
+.cover-container {
+   margin-top: 100px;
+   margin-bottom: 50px;
+}
+
+.masthead {
+	background: #303030d4;
+}
