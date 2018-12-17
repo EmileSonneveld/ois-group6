@@ -143,6 +143,18 @@
 	},
 	{
 		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Abdominal mass disorder",
+			"parent": "abdominal_symptom",
+			"uri": "SYMP_0000798"
+		},
+		"model": "ois_app.symptom",
+		"pk": "abdominal_mass_disorder"
+	},
+	{
+		"fields": {
 			"added_by": 4,
 			"can_cause_disease": [
 				"dancing_plague_of_1518"
@@ -173,7 +185,172 @@
 		"fields": {
 			"added_by": 1,
 			"can_cause_disease": [
+				"fever"
+			],
+			"can_cause_symptom": [],
+			"name": "Alteration of appetite",
+			"parent": "nutritional_disorder",
+			"uri": "SYMP_0000244"
+		},
+		"model": "ois_app.symptom",
+		"pk": "alteration_of_appetite"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Anxiety",
+			"parent": "neurological_symptom",
+			"uri": "SYMP_0000412"
+		},
+		"model": "ois_app.symptom",
+		"pk": "anxiety"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Arrhythmia",
+			"parent": "cardiovascular_symptom",
+			"uri": "SYMP_0000287"
+		},
+		"model": "ois_app.symptom",
+		"pk": "arrhythmia"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Cardiovascular symptom",
+			"parent": "root_symptom",
+			"uri": "SYMP_0000528"
+		},
+		"model": "ois_app.symptom",
+		"pk": "cardiovascular_symptom"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Confusion",
+			"parent": "neurological_symptom",
+			"uri": "SYMP_0000016"
+		},
+		"model": "ois_app.symptom",
+		"pk": "confusion"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Digestive system disorder",
+			"parent": "root_symptom",
+			"uri": "SYMP_0000459"
+		},
+		"model": "ois_app.symptom",
+		"pk": "digestive_system_disorder"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [
+				"fever"
+			],
+			"can_cause_symptom": [],
+			"name": "Dizziness",
+			"parent": "neurological_symptom",
+			"uri": "SYMP_0000610"
+		},
+		"model": "ois_app.symptom",
+		"pk": "dizziness"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Edema",
+			"parent": "skin_tissue_symptom",
+			"uri": "SYMP_0000538"
+		},
+		"model": "ois_app.symptom",
+		"pk": "edema"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [
+				"common_cold",
+				"flu"
+			],
+			"can_cause_symptom": [],
+			"name": "Fatigue",
+			"parent": "neurological_symptom",
+			"uri": "SYMP_0019177"
+		},
+		"model": "ois_app.symptom",
+		"pk": "fatigue"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Gastroenteritis",
+			"parent": "digestive_system_disorder",
+			"uri": "SYMP_0019159"
+		},
+		"model": "ois_app.symptom",
+		"pk": "gastroenteritis"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Lesion",
+			"parent": "skin_tissue_symptom",
+			"uri": null
+		},
+		"model": "ois_app.symptom",
+		"pk": "lesion"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Menorraghia",
+			"parent": "reproductive_system_symptom",
+			"uri": "SYMP_0000756"
+		},
+		"model": "ois_app.symptom",
+		"pk": "menorraghia"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Motor Weakness",
+			"parent": "muscular_symptom",
+			"uri": "SYMP_0000329"
+		},
+		"model": "ois_app.symptom",
+		"pk": "motor_weakness"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [
 				"dancing_plague_of_1518",
+				"fever",
+				"flu",
 				"tourette"
 			],
 			"can_cause_symptom": [],
@@ -200,15 +377,78 @@
 		"fields": {
 			"added_by": 1,
 			"can_cause_disease": [
+				"fever",
+				"flu"
+			],
+			"can_cause_symptom": [],
+			"name": "Muscular Weakness",
+			"parent": "muscular_symptom",
+			"uri": "SYMP_0000094"
+		},
+		"model": "ois_app.symptom",
+		"pk": "muscular_weakness"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [
 				"tourette"
 			],
 			"can_cause_symptom": [],
 			"name": "Neurological Symptom",
 			"parent": "root_symptom",
-			"uri": null
+			"uri": "SYMP_0000336"
 		},
 		"model": "ois_app.symptom",
 		"pk": "neurological_symptom"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Nutritional disorder",
+			"parent": "root_symptom",
+			"uri": "SYMP_0000473"
+		},
+		"model": "ois_app.symptom",
+		"pk": "nutritional_disorder"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Prostate dysfunction",
+			"parent": "reproductive_system_symptom",
+			"uri": "SYMP_0000364"
+		},
+		"model": "ois_app.symptom",
+		"pk": "prostate_dysfunction"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Rash",
+			"parent": "skin_tissue_symptom",
+			"uri": "SYMP_0000487"
+		},
+		"model": "ois_app.symptom",
+		"pk": "rash"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Reproductive system symptom",
+			"parent": "root_symptom",
+			"uri": "SYMP_0000196"
+		},
+		"model": "ois_app.symptom",
+		"pk": "reproductive_system_symptom"
 	},
 	{
 		"fields": {
@@ -225,12 +465,106 @@
 	{
 		"fields": {
 			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Shock",
+			"parent": "cardiovascular_symptom",
+			"uri": "SYMP_0000450"
+		},
+		"model": "ois_app.symptom",
+		"pk": "shock"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Skin tissue symptom",
+			"parent": "root_symptom",
+			"uri": "SYMP_0000488"
+		},
+		"model": "ois_app.symptom",
+		"pk": "skin_tissue_symptom"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [
+				"fever"
+			],
+			"can_cause_symptom": [],
+			"name": "Sweat",
+			"parent": "skin_tissue_symptom",
+			"uri": "SYMP_0019175"
+		},
+		"model": "ois_app.symptom",
+		"pk": "sweat"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [
+				"flu"
+			],
+			"can_cause_symptom": [],
+			"name": "Vomiting",
+			"parent": "digestive_system_disorder",
+			"uri": "SYMP_0019145"
+		},
+		"model": "ois_app.symptom",
+		"pk": "vomiting"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"can_cause_disease": [],
+			"can_cause_symptom": [],
+			"name": "Weight loss or gain",
+			"parent": "nutritional_disorder",
+			"uri": null
+		},
+		"model": "ois_app.symptom",
+		"pk": "weight_loss_or_gain"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"description": "Inflammation of the mucous membranes of the nose, throat and eyes.",
+			"name": "Common Cold",
+			"uri": "DOID_10459"
+		},
+		"model": "ois_app.disease",
+		"pk": "common_cold"
+	},
+	{
+		"fields": {
+			"added_by": 1,
 			"description": "a case of dancing mania that occurred in Strasbourg, Alsace, in the Holy Roman Empire in July 1518.",
 			"name": "Dancing plague (1518)",
 			"uri": null
 		},
 		"model": "ois_app.disease",
 		"pk": "dancing_plague_of_1518"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"description": "Result of an infection.",
+			"name": "Fever",
+			"uri": "SYMP_0000613"
+		},
+		"model": "ois_app.disease",
+		"pk": "fever"
+	},
+	{
+		"fields": {
+			"added_by": 1,
+			"description": "Has material basis in Influenzavirus.",
+			"name": "Flu",
+			"uri": "DOID_8469"
+		},
+		"model": "ois_app.disease",
+		"pk": "flu"
 	},
 	{
 		"fields": {
@@ -940,5 +1274,525 @@
 		},
 		"model": "admin.logentry",
 		"pk": 22
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:29:26.625Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "weight_loss_or_gain",
+			"object_repr": "<weight_loss_or_gain : SYMP_0000178>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 23
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:29:50.293Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "vomiting",
+			"object_repr": "<vomiting : SYMP_0019145>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 24
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:31:01.430Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "sweat",
+			"object_repr": "<sweat : SYMP_0019175>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 25
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:31:19.107Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"name_slug\", \"name\"]}}]",
+			"content_type": 12,
+			"object_id": "shock",
+			"object_repr": "<shock>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 26
+	},
+	{
+		"fields": {
+			"action_flag": 3,
+			"action_time": "2018-12-16T21:31:34.456Z",
+			"change_message": "",
+			"content_type": 12,
+			"object_id": "shok",
+			"object_repr": "<shok>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 27
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:31:57.991Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "shock",
+			"object_repr": "<shock : SYMP_0000450>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 28
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:32:23.748Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "skin_tissue_symptom",
+			"object_repr": "<skin_tissue_symptom : SYMP_0000488>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 29
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:32:44.050Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "reproductive_system_symptom",
+			"object_repr": "<reproductive_system_symptom : SYMP_0000196>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 30
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:33:08.592Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "rash",
+			"object_repr": "<rash : SYMP_0000487>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 31
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:33:28.474Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "prostate_dysfunction",
+			"object_repr": "<prostate_dysfunction : SYMP_0000364>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 32
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:35:09.184Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "motor_weakness",
+			"object_repr": "<motor_weakness : SYMP_0000329>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 33
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:35:51.952Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "nutritional_disorder",
+			"object_repr": "<nutritional_disorder : SYMP_0000473>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 34
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:37:22.424Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "neurological_symptom",
+			"object_repr": "<neurological_symptom : SYMP_0000336>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 35
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:37:45.545Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_weakness",
+			"object_repr": "<muscular_weakness : SYMP_0000094>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 36
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:39:20.026Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "menorraghia",
+			"object_repr": "<menorraghia : SYMP_0000756>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 37
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:40:45.965Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "weight_loss_or_gain",
+			"object_repr": "<weight_loss_or_gain>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 38
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:41:52.133Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "gastroenteritis",
+			"object_repr": "<gastroenteritis : SYMP_0019159>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 39
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:42:11.852Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "fatigue",
+			"object_repr": "<fatigue : SYMP_0019177>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 40
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:42:33.748Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "edema",
+			"object_repr": "<edema : SYMP_0000538>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 41
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:42:57.800Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "dizziness",
+			"object_repr": "<dizziness : SYMP_0000610>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 42
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:43:41.122Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "digestive_system_disorder",
+			"object_repr": "<digestive_system_disorder : SYMP_0000459>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 43
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:43:57.727Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "confusion",
+			"object_repr": "<confusion : SYMP_0000016>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 44
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:44:28.778Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "cardiovascular_symptom",
+			"object_repr": "<cardiovascular_symptom : SYMP_0000528>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 45
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:44:56.738Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "arrhythmia",
+			"object_repr": "<arrhythmia : SYMP_0000287>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 46
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:45:52.616Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "anxiety",
+			"object_repr": "<anxiety : SYMP_0000412>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 47
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:47:15.664Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "alteration_of_appetite",
+			"object_repr": "<alteration_of_appetite : SYMP_0000244>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 48
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:47:45.555Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"uri\"]}}]",
+			"content_type": 12,
+			"object_id": "abdominal_mass_disorder",
+			"object_repr": "<abdominal_mass_disorder : SYMP_0000798>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 49
+	},
+	{
+		"fields": {
+			"action_flag": 1,
+			"action_time": "2018-12-16T21:53:31.241Z",
+			"change_message": "[{\"added\": {}}]",
+			"content_type": 9,
+			"object_id": "common_cold",
+			"object_repr": "<common_cold>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 50
+	},
+	{
+		"fields": {
+			"action_flag": 1,
+			"action_time": "2018-12-16T21:54:58.219Z",
+			"change_message": "[{\"added\": {}}]",
+			"content_type": 9,
+			"object_id": "flu",
+			"object_repr": "<flu>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 51
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:56:10.438Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "fatigue",
+			"object_repr": "<fatigue : SYMP_0019177>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 52
+	},
+	{
+		"fields": {
+			"action_flag": 1,
+			"action_time": "2018-12-16T21:57:41.616Z",
+			"change_message": "[{\"added\": {}}]",
+			"content_type": 9,
+			"object_id": "fever",
+			"object_repr": "<fever>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 53
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:57:57.572Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "sweat",
+			"object_repr": "<sweat : SYMP_0019175>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 54
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:59:41.091Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_cramp",
+			"object_repr": "<muscular_cramp : SYMP_0000093>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 55
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T21:59:54.843Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "alteration_of_appetite",
+			"object_repr": "<alteration_of_appetite : SYMP_0000244>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 56
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T22:00:11.413Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_weakness",
+			"object_repr": "<muscular_weakness : SYMP_0000094>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 57
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T22:00:50.147Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "dizziness",
+			"object_repr": "<dizziness : SYMP_0000610>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 58
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T22:01:48.965Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_weakness",
+			"object_repr": "<muscular_weakness : SYMP_0000094>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 59
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T22:01:56.137Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "muscular_cramp",
+			"object_repr": "<muscular_cramp : SYMP_0000093>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 60
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T22:02:38.729Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "vomiting",
+			"object_repr": "<vomiting : SYMP_0019145>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 61
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-16T22:03:47.906Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"can_cause_disease\"]}}]",
+			"content_type": 12,
+			"object_id": "fatigue",
+			"object_repr": "<fatigue : SYMP_0019177>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 62
 	}
 ]

@@ -32,7 +32,10 @@ In case of the database got currupted due to a bad migration.
 	- weight_loss_or_gain has no equivalent OBO. Best would be to make this symptom obsolete, and propose 2 new symptoms: weight_loss and weight_gain
 	- Some symptoms have multiple versions in the OBO, like 'intense x' of 'acute x'. We choose the most neutral version in those cases.
 - Search for OBO ID's here: http://www.ontobee.org/search?ontology=SYMP&keywords=sweat&submit=Search+terms
-
+	- Or here: http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_10459
 
 Postgresql should be running locally
 Migrate from sqlite to other kind of database: https://gist.github.com/sirodoht/f598d14e9644e2d3909629a41e3522ad
+python manage.py dumpdata > datadump.json
+:: change settings.py to new database
+python manage.py migrate --run-syncdb
