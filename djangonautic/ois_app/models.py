@@ -27,7 +27,7 @@ def execute_after_save(sender, instance, created, *args, **kwargs):
 
 class PatientProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, )
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateTimeField() # DateField is not suported in OWL
     phone = models.CharField(max_length=20)
 
     def __str__(self):
@@ -39,8 +39,8 @@ class Diagnosis(models.Model):
     patient = models.ForeignKey(PatientProfile, on_delete=models.CASCADE, )
     symptom = models.ForeignKey('Symptom', on_delete=models.CASCADE, )
 
-    start_date = models.DateField(null=True, blank=True)
-    end_date = models.DateField(null=True, blank=True)
+    start_date = models.DateTimeField(null=True, blank=True)
+    end_date = models.DateTimeField(null=True, blank=True)
     severity = models.IntegerField(default=0)  # [0,10]
 
     def __str__(self):
