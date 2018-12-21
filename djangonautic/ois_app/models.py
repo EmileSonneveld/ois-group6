@@ -18,16 +18,16 @@ class DoctorProfile(models.Model):
         return "<Doctor: " + self.user.__str__() + ">"
 
 
-@receiver(models.signals.post_save, sender=DoctorProfile)
-def execute_after_save(sender, instance, created, *args, **kwargs):
-    if created:
-        instance.user.is_staff = True
-        instance.user.save()
+#@receiver(models.signals.post_save, sender=DoctorProfile)
+#def execute_after_save(sender, instance, created, *args, **kwargs):
+#    if created:
+#        instance.user.is_staff = True
+#        instance.user.save()
 
 
 class PatientProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, )
-    date_of_birth = models.DateTimeField() # DateField is not suported in OWL
+    date_of_birth = models.DateTimeField(null=True, blank=True) # DateField is not suported in OWL
     phone = models.CharField(max_length=20)
 
     def __str__(self):

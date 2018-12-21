@@ -37,5 +37,13 @@ In case of the database got currupted due to a bad migration.
 Postgresql should be running locally
 Migrate from sqlite to other kind of database: https://gist.github.com/sirodoht/f598d14e9644e2d3909629a41e3522ad
 python manage.py dumpdata > datadump.json
+
 :: change settings.py to new database
 python manage.py migrate --run-syncdb
+
+python manage.py shell
+from django.contrib.contenttypes.models import ContentType
+ContentType.objects.all().delete()
+quit()
+
+python manage.py loaddata datadump.json

@@ -464,7 +464,7 @@
 	},
 	{
 		"fields": {
-			"added_by": 1,
+			"added_by": 4,
 			"can_cause_disease": [],
 			"can_cause_symptom": [],
 			"name": "Shock",
@@ -970,7 +970,7 @@
 	},
 	{
 		"fields": {
-			"date_of_birth": "1993-01-01",
+			"date_of_birth": null,
 			"phone": ""
 		},
 		"model": "ois_app.patientprofile",
@@ -978,16 +978,61 @@
 	},
 	{
 		"fields": {
-			"author": 1,
-			"body": "Dancing disease.\r\nSearch for it on wikipedia!",
+			"author": 4,
+			"body": "I see you have a potential disease.\r\nPlease contact me ASAP with the 'Contact doctor' button",
 			"date": "2018-12-14T22:03:59.655Z",
-			"related_disease": [],
+			"related_disease": [
+				"common_cold",
+				"dancing_plague_of_1518",
+				"fever",
+				"flu",
+				"tourette"
+			],
 			"slug": "hey_hoy_artikkel_",
 			"thumb": "default.png",
-			"title": "Hey hoy Artikkel!"
+			"title": "Hi dear user"
 		},
 		"model": "ois_app.article",
 		"pk": 1
+	},
+	{
+		"fields": {
+			"author": 1,
+			"body": "Influenza is a major cause of sickness and death around the world and is one of the most important infectious diseases confronting the world today. Combined with pneumonia, influenza is one of the ten leading causes of death in the United States. Even though most of its victims are elderly, pneumonia-influenza is one of the top-ten leading infectious conditions listed as causing years of potential life lost by the Centers for Disease Control. These facts, plus the memory of the great pandemic of 1918-1919, which killed about 550,000 people in the United States and claimed over 20 million lives around the world, have encouraged much research on this viral infection. The origins of virulent strains and the behavior of epidemics are still not well understood, however, and the unpredictability of emergence of new strains influenza proteins presents serious problems for public health-based control programs throughout the world.\r\n\r\nOne major complication to controlling the disease is the fact that flu, during the early phase of the infection, is often confused with the common cold. Influenza is a respiratory infection characterized by headaches, fevers, and short dry coughs. Usually, the disease lasts for up to a week, but infection is especially dangerous for the very young and the elderly, as well as those with certain chronic health problems. The elderly tend to have an overall lower resistance in general, and thus are more susceptible to influenza and its complications. Occasionally, there is a neuro-psychological complication known as “post-flu depression” that can last for several weeks or even months.",
+			"date": "2018-12-17T02:48:10.080Z",
+			"related_disease": [],
+			"slug": "influenza",
+			"thumb": "default.png",
+			"title": "Influenza"
+		},
+		"model": "ois_app.article",
+		"pk": 2
+	},
+	{
+		"fields": {
+			"author": 1,
+			"body": "Symptom Relief\r\nOver-the-counter medications can provide temporary relief of symptoms and should be used as soon as you feel a cold coming on.\r\n\r\nStudies have shown that acetaminophen, aspirin, ibuprofen or any other non-steroidal anti-inflammatory drug (NSAID) used to relieve aches and pains may worsen asthma and/or peptic ulcers. People with asthma should not take these medications unless recommended by their healthcare provider. Pregnant women should check with their healthcare provider for all medication. Aspirin should not be given to children under 18 years old because it may play a role in causing Reye's Syndrome, a rare but severe liver and central nervous system condition. Be sure to discuss all medication choices with a healthcare provider.\r\n\r\nCongestion, cough and nasal discharge may be treated with a decongestant, antihistamine or a combination of the two. Some people such as those with thyroid disease or high blood pressure should not take decongestants — check with your healthcare provider to determine what is best. Many over-the-counter cold remedies contain both of these ingredients.",
+			"date": "2018-12-17T02:50:36.638Z",
+			"related_disease": [],
+			"slug": "what_to_do_against_a_common_cold_",
+			"thumb": "cold.PNG",
+			"title": "What to do against a common cold?"
+		},
+		"model": "ois_app.article",
+		"pk": 3
+	},
+	{
+		"fields": {
+			"author": 1,
+			"body": "When you're not feeling well, all you can think about is how to feel better fast. It's helpful to already have a strategy and supplies on hand, so when sickness strikes you'll know what to do. You'll need nourishing food, plenty of hydrating fluids, some medications or herbal remedies, and distractions to keep boredom at bay. Whether you're injured or ill, knowing how to take care of yourself can help put you on the road to a fast recovery.\r\nhttps://www.wikihow.com/Get-Well-Fast",
+			"date": "2018-12-17T02:59:25.528Z",
+			"related_disease": [],
+			"slug": "how_to_get_well_fast",
+			"thumb": "wikihow.PNG",
+			"title": "How to Get Well Fast"
+		},
+		"model": "ois_app.article",
+		"pk": 4
 	},
 	{
 		"fields": {
@@ -1794,5 +1839,31 @@
 		},
 		"model": "admin.logentry",
 		"pk": 62
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-17T02:55:17.137Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"added_by\"]}}]",
+			"content_type": 12,
+			"object_id": "shock",
+			"object_repr": "<shock : SYMP_0000450>",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 63
+	},
+	{
+		"fields": {
+			"action_flag": 2,
+			"action_time": "2018-12-17T03:00:59.220Z",
+			"change_message": "[{\"changed\": {\"fields\": [\"title\", \"body\", \"author\", \"related_disease\"]}}]",
+			"content_type": 7,
+			"object_id": "1",
+			"object_repr": "Hi dear user",
+			"user": 1
+		},
+		"model": "admin.logentry",
+		"pk": 64
 	}
 ]
